@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -fPIC -g  -shared -Wl,-soname,libBHV_Defense_Multi.so -o ../../../lib/libBHV_Defense_Multi.so CMakeFiles/BHV_Defense_Multi.dir/BHV_Defense_Multi.cpp.o CMakeFiles/BHV_Defense_Multi.dir/NodeReport.cpp.o  -L/home/oyster/moos-ivp/lib -Wl,-rpath,/home/oyster/moos-ivp/lib -lhelmivp -lbehaviors -livpbuild -llogic -livpcore -lbhvutil -lmbutil -lgeometry -lm 

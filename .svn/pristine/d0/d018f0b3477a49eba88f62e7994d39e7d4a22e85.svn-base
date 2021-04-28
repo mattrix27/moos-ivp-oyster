@@ -1,0 +1,26 @@
+
+//---------------------------------------------------------
+ProcessConfig = uFldProtocolEval
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  COLLISION_RANGE = 3
+  NEAR_MISS_RANGE = 5
+  CPA_VIOLATION_RANGE = 8        // min_cpa
+  PREFERRED_CPA_RANGE = 16       // max_cpa
+  DETECTION_RANGE = 30
+
+  TIME_THRESHOLD = 1              // seconds
+  REPORT_THRESHOLD = 45
+  
+  DELAY_TIME_TO_CLEAR = 100       // seconds
+  DEPLOY_DELAY_TIME = 30          // seconds
+
+  PULSE = TRUE
+  PULSE_RANGE = 25
+  PULSE_DURATION = 10             // seconds
+  
+  PUBLISH_IMMEDIATELY = TRUE
+  }
+//---------------------------------------------------------

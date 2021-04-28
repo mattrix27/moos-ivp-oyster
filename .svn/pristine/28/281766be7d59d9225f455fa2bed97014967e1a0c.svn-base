@@ -1,0 +1,11 @@
+MOOSTimeWarp = $(WARP)
+
+//	Lake Popolopen
+//LatOrigin  = 41.35499
+LatOrigin  = 41.35480
+//LongOrigin = -74.0544
+LongOrigin = -74.0551
+	
+// MIT Sailing
+// LatOrigin  = 42.358436
+// LongOrigin = -71.087448

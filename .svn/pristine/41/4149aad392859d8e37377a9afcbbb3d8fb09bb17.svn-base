@@ -1,0 +1,174 @@
+//*******************************************************
+// ShoreSide Configuration File
+
+ServerHost = localhost
+ServerPort = 9000
+Community  = shoreside
+
+TERM_REPORTING = false
+
+#include plug_origin_warp.moos
+  
+//--------------------------------------------------------
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pMarineViewer   @ NewConsole = false
+  Run = pLogger         @ NewConsole = false
+
+  Run = pShare          @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldShoreBroker @ NewConsole = false
+  Run = uFldNodeComms   @ NewConsole = false
+
+	
+	Run = iSay            @ NewConsole = false
+	Run = uFldTagManager  @ NewConsole = false
+}
+
+#include plug_pHostInfo.moos
+
+
+//---------------------------------------------------------
+// iSay Config Block
+
+ProcessConfig = iSay
+{                                                               
+  AppTick   = 2
+  CommsTick = 2 
+}
+  
+//---------------------------------------------------------
+// uFldTagManager Config Block
+
+ProcessConfig = uFldTagManager                                  
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+                                                                
+  tag_range = 50     // default (meters)                       
+                                                                
+  post_color = white  // default                                
+
+	human_platform = mokai
+	
+	tag_circle = true
+	tag_circle_range = 5
+	tag_circle_color = "green"
+	tag_min_interval = 2
+
+	robot_tag_post  = MOOS_MANUAL_OVERRIDE_$UP_TARGET=true
+	robot_tag_post  = SAY_MOOS=file=sounds/tennis_grunt.wav
+
+	human_tag_post  = MOOS_MANUAL_OVERRIDE_$UP_TARGET=true
+	human_tag_post  = SAY_MOOS=file=sounds/t2_hasta_la_vista.wav
+
+	robot_untag_post = MOOS_MANUAL_OVERRIDE_$UP_TARGET=false
+	robot_untag_post = SAY_MOOS=file=sounds/shipbell.wav
+
+	human_untag_post = MOOS_MANUAL_OVERRIDE_$UP_TARGET=false
+	human_untag_post = SAY_MOOS=file=sounds/t2_no_problemo.wav
+	
+  team_one = red                                                
+  team_two = blue                                               
+                                                                
+  zone_one = pts={0,-20:120,-20:120,-100:0,-100}                
+  zone_two = pts={0,-100:120,-100:120,-180:0,-180}              
+
+	zone_one_color = pink
+	zone_two_color = light_blue
+}                                                       
+	
+//---------------------------------------------------------
+// pShare Config Block
+
+ProcessConfig = pShare
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  input = route = multicast_8
+}
+
+
+//--------------------------------------------------
+// uFldNodeComms Configuration Block
+
+ProcessConfig = uFldNodeComms
+{
+  AppTick   = 2
+  CommsTick = 2
+
+           COMMS_RANGE = 75
+        CRITICAL_RANGE = 25
+      MIN_MSG_INTERVAL = 20
+        MAX_MSG_LENGTH = 100
+  VIEW_NODE_RPT_PULSES = true
+}
+
+//--------------------------------------------------
+// uFldShoreBroker Configuration Block
+
+ProcessConfig = uFldShoreBroker
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  QBRIDGE = DEPLOY, NODE_REPORT, NODE_MESSAGE
+  QBRIDGE = STATION_KEEP, APPCAST_REQ
+  QBRIDGE = MOOS_MANUAL_OVERRIDE
+ 
+  BRIDGE  = src=RETURN_ALL, alias=RETURN
+  BRIDGE  = src=RETURN_$V,  alias=RETURN
+}
+
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+  
+  File          = LOG_SHORESIDE
+  PATH          = ./
+  AsyncLog      = true
+  FileTimeStamp = true
+
+  // Log it all!!!!!
+  WildCardLogging = true 
+}
+
+
+//--------------------------------------------------------
+ProcessConfig = pMarineViewer
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  tiff_file            = forrest19.tif
+  set_pan_x            = -90
+  set_pan_y            = -280
+  zoom                 = 0.65
+  vehicles_shape_scale = 1.5
+  vehicles_name_mode   = names+shortmode
+
+  appcast_viewable     = true
+  appcast_color_scheme = indigo
+
+  comms_pulse_viewable_all = false
+  vehicles_name_mode = names
+
+  stale_report_thresh = 2
+  stale_remove_thresh = 20
+
+  scope = TAG_POST
+
+  button_one   = DEPLOY  # DEPLOY_ALL=true 
+  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
+  button_one   = RETURN_ALL=false
+  button_two   = RETURN  # RETURN_ALL=true
+}
+

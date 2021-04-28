@@ -1,0 +1,164 @@
+//---------------------------------------------------
+// Helm Behavior file
+
+initialize   DEPLOY  = false
+initialize   RETURN  = false
+initialize   TAGGED  = false
+initialize ENEMY_TERRITORY = false
+
+set MODE = ACTIVE {
+  DEPLOY = true
+} INACTIVE
+
+set MODE = RETURNING {
+  MODE = ACTIVE
+  RETURN = true
+  TAGGED = false
+} ATTACKING
+
+set MODE = TAGGED {
+  MODE = ACTIVE:ATTACKING
+  TAGGED != false
+} UNTAGGED
+
+set MODE = AVOIDING {
+  MODE = ACTIVE:ATTACKING:UNTAGGED
+  ENEMY_TERRITORY = true
+}
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = waypt_grab
+  pwt       = 50
+  perpetual = true
+
+  condition = MODE==UNTAGGED
+  updates   = WPT_UPDATE
+
+  endflag   = FLAG_GRAB_REQUEST=vname=$(VNAME)
+  endflag   = RETURN=true
+
+               speed = 5   // meters per second
+        capture_line = false
+      capture_radius = 5.0
+         slip_radius = 5.0
+
+             points = -61.05,-70.72
+
+    visual_hints = nextpt_color=gray20
+    visual_hints = nextpt_vertex_size=2
+    visual_hints = nextpt_lcolor=invisible
+    visual_hints = label_color=invisible
+    visual_hints = vertex_color=invisible, edge_color=invisible
+    visual_hints = vertex_size=2, edge_size=1
+}
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name = waypt_untag
+  pwt = 100
+  perpetual = true
+
+  condition = MODE==TAGGED
+
+  activeflag = RETURN = false
+  endflag   = TAGGED = false
+
+              speed = 5
+     capture_radius = 10.0
+        slip_radius = 10.0
+             points = 61.84,-13.2
+}
+
+//----------------------------------------------
+Behavior = BHV_AvoidCollision
+{
+  name = avdc_chaser2
+  pwt = 150
+  perpetual = true
+
+  //behavior specific configuration
+  condition = MODE==ACTIVE
+
+  updates   = CONTACT_INFO
+
+  endflag      = CONTACT_AVOIDED=chaser2
+
+             contact = chaser2
+    on_no_contact_ok = true
+         extrapolate = true
+               decay = 15,30
+
+        completed_dist = 22
+        pwt_outer_dist = 200
+        pwt_inner_dist = 50
+     min_util_cpa_dist = 10
+     max_util_cpa_dist = 75
+             pwt_grade = linear
+   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}
+
+//----------------------------------------------
+Behavior = BHV_AvoidCollision
+{
+  name = avdc_human2
+  pwt = 150
+  perpetual = true
+
+  //behavior specific configuration
+  condition = MODE==ACTIVE
+
+  updates   = CONTACT_INFO
+
+  endflag      = CONTACT_AVOIDED=human2
+
+             contact = human2
+    on_no_contact_ok = true
+         extrapolate = true
+               decay = 15,30
+
+        completed_dist = 22
+        pwt_outer_dist = 200
+        pwt_inner_dist = 50
+     min_util_cpa_dist = 10
+     max_util_cpa_dist = 75
+             pwt_grade = linear
+   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}
+
+Behavior = BHV_Confines
+{
+  name = stay_in_area
+  pwt = 300
+  perpetual = true
+
+  //behavior specific configuration
+  condition = MODE==ACTIVE
+
+  polygon         = 51,21 : -81,-41 : -51,-105 : 81,-42 : label,stayIN
+  lookahead_secs  = 3.0
+  show_closest_pt = true
+  use_zero_cone   = true
+  should_normalize = true
+}
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = waypt_return
+  pwt       = 100
+  perpetual = true
+
+  condition = MODE==RETURNING
+
+  updates   = RETURN_UPDATES
+
+  endflag   = DEPLOY = false
+
+              speed = 5
+     capture_radius = 10.0
+        slip_radius = 10.0
+             points = 61.84,-13.2
+}

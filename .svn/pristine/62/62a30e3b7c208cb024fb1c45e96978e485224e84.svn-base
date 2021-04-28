@@ -1,0 +1,39 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager_5_0
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   //Starting with uDialogManager ver. 5.0 we can reject sentences based on word confidence scores
+   //this is specified with the confidence_thresh = value range (0,-1.0]
+   //specifying this parameter has uDialaogManager subscribe to the SPEECH_RECOGNITION_SCORE
+   //MOOSDB variable.  It will include the posting from uSpeechRec version 3.0 'sentence: BLUE ONE ATTACK, confscores: 1 0.77 0.93 0.8 1, score=-1,100'
+   //if not specified, reverts to original SPEECH_RECOGNITION_SENTENCE which is the most
+   //likely sentence without consideration of word confidence scores.
+   confidence_thresh = 0.7
+
+   //Use_Wav_Files=Yes indicates using pre-existing wav files instead of local text-to-speech TTS capability
+   //for speech dialog.  Options are yes or no.
+   Use_Wav_Files=Yes
+
+
+   //robot Betty's nickname is Arnold
+   //Nickname = betty:arnold
+
+   //list of vars and values to publish given speech sentence
+	 //var-value pairs are '+' separated
+	 sentence = Arnold_Deploy : DEPLOY = true + MOOS_MANUAL_OVERRIDE = false + RETURN = false
+
+    //quotes around a string for a value can be used
+   sentence = Arnold_Follow : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=true"
+   sentence = Arnold_Station : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=false"
+   sentence = Arnold_Return : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=RETURN,string_val=true"
+
+	//add NOCONFIRM after speech sentence so that publishes without confirmation
+	 sentence = Grab {NOCONFIRM} : DEPLOY = true + MOOS_MANUAL_OVERRIDE = false + RETURN = false
+
+	//to switch from default confirmation of confirm=Yes or confirm=No use CONFIRM=some_confirmation and DECLINE=some_rejection 
+	 sentence = Tag { CONFIRM=acknowledge | DECLINE=negative} : DEPLOY = true + MOOS_MANUAL_OVERRIDE = false + RETURN = false
+}

@@ -1,0 +1,16 @@
+//------------------------------------------------
+// iLEDInterpreter config block
+
+ProcessConfig = iLEDInterpreter
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   // LED vars to register
+   // the values need to be changed to the correct var names from uFldxxManager
+   TAGGED			= LED_TAGGED
+   OUT_OF_BOUNDS	= LED_OUT_OF_BOUNDS // not yet implemented		
+   HAVE_FLAG		= LED_HAVE_FLAG		
+   IN_TAG_RANGE		= LED_IN_TAG_RANGE	// not yet implemented	
+   IN_FLAG_ZONE		= LED_IN_FLAG_ZONE
+}

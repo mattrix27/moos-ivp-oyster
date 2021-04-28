@@ -1,0 +1,17 @@
+//--------SAFETY OP_REGION--------------------------------------
+Behavior = BHV_OpRegion
+{
+  name		= opregion
+  pwt		= 100
+  condition	= MODE==ACTIVE
+
+  polygon = pts={-220, -120 : -100, -430 : 380, -240 : 254, 46 : 112, 21 }, label_area=SAFETY_OPAREA
+
+  breached_poly_flag = SAY_MOOS = ALERT op region has been violated
+  
+  trigger_entry_time = 1
+  trigger_exit_time = 1
+
+  visual_hints = edge_color   = aqua 
+  visual_hints = edge_size=1
+}

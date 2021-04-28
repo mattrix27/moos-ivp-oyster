@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pPingResponder config block
+
+ProcessConfig = pPingResponder
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

@@ -1,0 +1,42 @@
+//------------------------------------------------
+// uNetMon config block
+
+ProcessConfig = uNetMon
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   add_ip = group=evan, ip=192.168.5.1, name=frontseat
+   add_ip = group=evan, ip=192.168.5.100, name=backseat
+
+   add_ip = group=felix, ip=192.168.6.1, name=frontseat
+   add_ip = group=felix, ip=192.168.6.100, name=backseat
+
+   add_ip = group=gus, ip=192.168.7.1, name=frontseat
+   add_ip = group=gus, ip=192.168.7.100, name=backseat
+
+   add_ip = group=hal, ip=192.168.8.1, name=frontseat
+   add_ip = group=hal, ip=192.168.8.100, name=backseat
+
+   add_ip = group=ida, ip=192.168.9.1, name=frontseat
+   add_ip = group=ida, ip=192.168.9.100, name=backseat
+
+   add_ip = group=jing, ip=192.168.10.1, name=frontseat
+   add_ip = group=jing, ip=192.168.10.100, name=backseat
+
+   add_ip = group=kirk, ip=192.168.11.1, name=frontseat
+   add_ip = group=kirk, ip=192.168.11.100, name=backseat
+
+   add_ip = group=luke, ip=192.168.12.1, name=frontseat
+   add_ip = group=luke, ip=192.168.12.100, name=backseat
+
+   add_ip = group=mokai_pablos, ip=192.168.1.196, name=196
+   add_ip = group=mokai_pablos, ip=192.168.1.197, name=197
+
+   add_ip = group=bullets, ip=192.168.1.x, name=mokai_3
+   add_ip = group=bullets, ip=192.168.1.x, name=mokai_2
+   add_ip = group=bullets, ip=192.168.1.21, name=mokai_1
+   add_ip = group=bullets, ip=192.168.1.16, name=mokai_0
+   add_ip = group=bullets, ip=192.168.1.15, name=antenna
+}
+

@@ -1,0 +1,21 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = pBotDialog
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   //robot Betty's nickname is Arnold
+   //Nickname = betty:arnold
+
+   //list of vars and values to publish given speech sentence
+	 //var-value pairs are '+' separated
+	 sentence = Arnold_Deploy : DEPLOY = true + MOOS_MANUAL_OVERRIDE = false + RETURN = false
+
+    //quotes around a string for a value can be used
+   sentence = Arnold_Follow : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=true"
+   sentence = Arnold_Station : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=false"
+   sentence = Arnold_Return : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=RETURN,string_val=true"
+}
+

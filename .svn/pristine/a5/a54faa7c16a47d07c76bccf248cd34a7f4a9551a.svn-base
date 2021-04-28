@@ -1,0 +1,6 @@
+ProcessConfig = iMetaCompass
+{
+  AppTick     = 4
+  CommsTick   = 4
+  SpeedThresh = 0.2
+}

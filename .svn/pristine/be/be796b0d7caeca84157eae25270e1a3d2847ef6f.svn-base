@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pAttackCommander config block
+
+ProcessConfig = pAttackCommander
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

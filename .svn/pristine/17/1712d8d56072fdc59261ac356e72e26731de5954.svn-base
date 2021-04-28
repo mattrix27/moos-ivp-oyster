@@ -1,0 +1,45 @@
+ServerHost = localhost
+ServerPort = 9000
+Community = alpha
+
+ProcessConfig = ANTLER
+{
+
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = false
+	Run = pLogger   @NewConsole = false
+}
+
+ProcessConfig = pLogger
+{
+
+	AppTick  = 10
+        CommsTick  = 10
+
+	File = HRM_LOG
+	PATH = ./logs/			// change this to any path to log files
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	FileTimeStamp = true
+
+	LogAuxSrc = true
+
+	WildCardLogging = true
+
+}
+	
+
+
+//------------------------------------------------
+// iZephyrHRM config block
+
+ProcessConfig = iZephyrHRM
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   MAC=A0:E6:F8:48:3A:6C
+   Channel=1
+}
+

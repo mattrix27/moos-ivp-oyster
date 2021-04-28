@@ -1,0 +1,43 @@
+ServerHost = localhost
+ServerPort = 9000
+Community  = alpha
+
+MOOSTimeWarp = 1
+
+//------------------------------------------                                                                       
+// Antler configuration  block                                                                                     
+
+	ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = iBlinkstick     @ NewConsole = false
+  Run = uMacView        @ NewConsole = false
+}
+
+//------------------------------------------------
+// iBlinkstick config block
+
+ProcessConfig = iBlinkstick
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// uMACView config block
+
+ProcessConfig = uMACView                                        
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+                                                                
+  procs_font_size   = medium  // (xsmall, small, medium, large) 
+  nodes_font_size   = medium  // (xsmall, small, medium, large) 
+  appcast_font_size = small   // (xsmall, small, medium, large) 
+                                                                
+  appcast_color_scheme = default  // {default, indigo, beige}   
+  appcast_height       = 70       // [30,35,40,...,85,90]       
+  refresh_mode         = events   // {paused, events, streaming}
+}                                                       

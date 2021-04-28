@@ -1,0 +1,23 @@
+//------------------------------------------------
+// iButtonBox config block
+
+ProcessConfig = iButtonBox
+{
+   AppTick   = 4
+   CommsTick = 4
+
+    // With new uDev rules, this is usually /dev/ButtonBox on Mokai Pablo boxes
+    PORT = /dev/cu.usbmodemFD121
+    BAUDRATE = 9600
+    
+  	BUTTON_0_UP_POST = var=SPEECH_ACTIVE, sval=FALSE
+    BUTTON_0_DOWN_POST = var=SPEECH_ACTIVE, sval=TRUE
+    
+    BUTTON_1_UP_POST = var=BUTTON_VOIP, sval=FALSE
+    BUTTON_1_DOWN_POST = var=BUTTON_VOIP, sval=TRUE
+
+    BUTTON_2_DOWN_POST = var=FLAG_GRAB_REQUEST, val="vname=$(VNAME)"
+
+    BUTTON_3_DOWN_POST = var=TAG_REQUEST, val="vname=$(VNAME)"
+}
+

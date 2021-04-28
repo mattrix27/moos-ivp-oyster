@@ -1,0 +1,255 @@
+//----------------------------------------------
+// Vehicle behavior file
+//----------------------------------------------
+
+initialize   DEPLOY  = false
+initialize   RETURN  = false
+initialize   STATION_KEEP = false
+initialize   SURVEY  = true
+initialize   AVOID   = true
+initialize   SURVEY_UNDERWAY = false
+initialize   OPREGION = true
+initialize   SURVEY_FRONT = false
+initialize   CONTAIN_SET  = false
+
+set MODE = ACTIVE {
+  DEPLOY = true
+} INACTIVE
+
+set MODE = RETURNING {
+  MODE = ACTIVE
+  RETURN = true
+}
+
+set MODE = ESTIMATING {
+  MODE = ACTIVE
+  SURVEY = true
+  RETURN = false
+}
+
+set MODE = FOLLOWING_FRONT  {
+  MODE = ACTIVE
+  SURVEY_FRONT = true
+  //SURVEY = false
+}
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{ 
+  name         = waypt_circle
+  pwt          = 100
+  condition    = MODE==ESTIMATING
+  perpetual    = false
+  updates      = SURVEY_UPDATES
+  activeflag   = SURVEY_UNDERWAY = true     
+  inactiveflag = SURVEY_UNDERWAY = false
+  endflag      = SURVEY_FRONT = true
+  endflag      = SURVEY = false
+  endflag      = CONTAIN_SET = true
+
+         speed = 2   // meters per second
+        radius = 5.0
+   slip_radius = 15.0
+          lead = 8
+	  lead_damper=1
+	points = format=ellipse, label=front_survey, x=$(SURVEY_X), y=$(SURVEY_Y), degs=$(DEGREES), pts=$(PTS), snap=1, major=$(MAJOR), minor=$(MINOR)
+
+        repeat = 0
+  visual_hints = nextpt_color=red, nextpt_lcolor=green
+  visual_hints = vertex_color=yellow, edge_color=gray25
+  visual_hints = vertex_size=1, edge_size=1
+}
+
+//-----------------------------------------------------------------------
+//NOTE: This behavior, in IDLE STATE, determines max gradient,
+//      and line of front by LMS linear regression
+//-----------------------------------------------------------------------
+Behavior = BHV_FollowFront
+{
+   name        = follow_front
+   pwt         = 100
+   condition   = MODE==FOLLOWING_FRONT
+   perpetual   = true
+   //activeflag  = SURVEY_UNDERWAY = true
+   //duration    = 300  //equivalent to 5 minutes
+
+   //----------------------------------------
+   //Parameters specific to this behavior
+   center = $(CENTER)
+   base_width = $(BASE_WIDTH_F)
+   peak_width = $(PEAK_WIDTH_F)
+   vname=$(VNAME)
+}
+
+//------------------------------------------------------------------------
+//NOTE: This waypoint behavior is for vehicle to travel between
+//       two waypoints produced by BHV_FollowFront
+//------------------------------------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name         = waypt_front_line
+  pwt          = 100
+  condition    = MODE==FOLLOWING_FRONT
+  perpetual    = true
+  updates      = FRONT_POINTS_UPDATE
+  repeat       = 3
+  duration     = 600                       
+  activeflag   = SURVEY_UNDERWAY = true
+  endflag      = RETURN = true
+  //endflag      = SURVEY_FRONT = false
+  endflag      = CONTAIN_SET = false
+  //endlfag      = OPREGION = false
+
+  
+        speed = 2   // meters per second
+        radius = 5.0
+   slip_radius = 15.0
+          lead = 8
+	  lead_damper=1
+	points = $(SURVEY_X),$(SURVEY_Y)  //center of survey circle
+
+  visual_hints = nextpt_color=red, nextpt_lcolor=green
+  visual_hints = vertex_color=yellow, edge_color=gray25
+  visual_hints = vertex_size=1, edge_size=1
+
+}
+
+//----------------------------------------------------------------------
+Behavior = BHV_ZigFront
+{
+  name         = zig_front
+  pwt          = 150
+  condition    = MODE==FOLLOWING_FRONT
+  perpetual    = true
+  activeflag   = SURVEY_UNDERWAY = true
+
+
+
+   //--------------------------------------
+   // Parameters specific to this behavior
+
+   base_width        = $(BASE_WIDTH_Z)
+   peak_width        = $(PEAK_WIDTH_Z)
+   zig_duration      = $(ZIG_DURATION)
+   zig_angle         = $(ZIG_ANGLE)
+   percent_temp_hot  = $(PERCENT_TEMP_HOT)
+   percent_temp_cold = $(PERCENT_TEMP_COLD)
+
+}
+
+//----------------------------------------------
+Behavior = BHV_Contain
+{
+  name              = bhv_contain
+  pwt               = 100
+
+  condition         = MODE==ACTIVE
+  condition         = CONTAIN_SET=true
+
+  //-------------------------------------
+  //Parameters distinct to this behavior
+
+  buffer_distance  = $(BUFFER_DISTANCE)   //meters
+  base_width       = $(BASE_WIDTH_C)
+  peak_width       = $(PEAK_WIDTH_C)
+}
+       
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{
+  name       = waypt_return
+  pwt        = 100
+  condition  = RETURN = true
+  condition  = DEPLOY = true
+  perpetual  = true
+  endflag    = RETURN = false
+  endflag    = DEPLOY = false
+
+         speed = 2.0
+        radius = 2.0
+     nm_radius = 8.0
+        points = $(START_POS)
+        repeat = 10
+          lead = 8
+}
+
+//----------------------------------------------
+Behavior = BHV_OpRegion
+{
+  name       = opregion
+  pwt        = 100
+  condition  = MODE==ACTIVE
+  condition  = OPREGION=true
+ 
+             polygon = pts={-50,-40 : 100,20 : 180,20 : 180,-200 : -50,-200 : -100,-75}
+  trigger_entry_time = 1
+  trigger_exit_time  = 1
+        visual_hints = edge_size=1, vertex_size=2
+}
+
+//------------------------------------------------
+//Behavior = BHV_AvoidCollision
+{
+  name       = avdcollision_
+  pwt        = 200
+  condition  = AVOID = true
+  updates    = CONTACT_INFO
+  endflag    = CONTACT_RESOLVED = $[CONTACT]
+  templating = spawn
+
+               contact = to-be-set
+      on_no_contact_ok = true
+           extrapolate = true
+                 decay = 30,60
+
+        pwt_outer_dist = 50
+        pwt_inner_dist = 20
+        completed_dist = 75
+     min_util_cpa_dist = 8
+     max_util_cpa_dist = 25
+             pwt_grade = linear
+   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------
+// ----------------   OTHER BEHAVIORS THAT ARE NOT NEEDED -----------------------------------------------
+//------------------------------------------------------------------------------------------------------
+
+//---------------------------------------------
+//Behavior = BHV_Waypoint
+{
+  name          = follow_front_triangle
+  pwt           = 100
+  condition     = MODE==FOLLOWING_FRONT
+  perpetual     = true
+  activeflag    = SURVEY_UNDERWAY = true
+  endflag       = RETURN = true
+  
+	 speed = 2   // metersper second
+        radius = 5.0
+   slip_radius = 15.0
+          lead = 8
+	  lead_damper=1
+	   points = format=radial, label=front_line, x=$(SURVEY_X), y=$(SURVEY_Y), radius=100, pts=3, snap=1
+           repeat = 3
+	   
+  visual_hints = nextpt_color=red, nextpt_lcolor=green
+  visual_hints = vertex_color=yellow, edge_color=gray25
+  visual_hints = vertex_size=1, edge_size=1
+
+
+}
+
+

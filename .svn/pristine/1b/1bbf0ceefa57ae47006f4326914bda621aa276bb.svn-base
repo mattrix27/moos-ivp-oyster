@@ -1,0 +1,190 @@
+//*******************************************************
+// ShoreSide Configuration File
+
+ServerHost = localhost
+ServerPort = $(SPORT)
+Community  = $(SNAME)
+
+#include plug_origin_warp.moos
+  
+//--------------------------------------------------------
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pMarineViewer   @ NewConsole = false
+  Run = pLogger         @ NewConsole = false
+  Run = uProcessWatch   @ NewConsole = false
+  Run = pShare          @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldShoreBroker @ NewConsole = false
+  Run = uFldNodeComms   @ NewConsole = false
+	Run = uFldFlagManager @ NewConsole = false
+	Run = uFldTagManager  @ NewConsole = false
+}
+
+#include plug_pShare.moos
+
+//--------------------------------------------------
+// uFldFlagMgr Configuration Block
+
+ProcessConfig = uFldFlagManager
+{
+  AppTick       = 2
+  CommsTick     = 2
+
+  flag = x=60, y=-30,  label=one
+  flag = x=60, y=-170, label=two
+}
+
+//--------------------------------------------------
+// uFldTagManager Configuration Block
+
+ProcessConfig = uFldTagManager
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  vtag_range = 30
+	post_color = white
+	miss_color = blue
+	hit_color  = red
+
+	team_one   = $(VTEAM1)
+	team_two   = $(VTEAM2)
+	zone_one   = pts={0,-20:120,-20:120,-100:0,-100}
+	zone_two   = pts={0,-100:120,-100:120,-180:0,-180}
+}
+
+//-------------------------------------------------- 
+// ufldnodecomms Configuration Block    
+
+ProcessConfig = uFldNodeComms
+{
+  AppTick       = 2
+  CommsTick     = 2
+
+  comms_range      = 5000
+  critical_range   = 25
+
+  min_msg_interval = 15
+  max_msg_length   = 1000
+  groups           = false
+
+  view_node_rpt_pulses = true
+}
+
+
+	//--------------------------------------------------
+// uFldShoreBroker Configuration Block
+
+ProcessConfig = uFldShoreBroker
+{
+  AppTick       = 1
+  CommsTick     = 1
+
+  // Note: [QBRIDGE = FOO]  is shorthand for                    
+  //       [BRIDGE = src=FOO_$V,  alias=FOO] and                
+  //       [BRIDGE = src=FOO_ALL, alias=FOO]
+
+  qbridge  = DEPLOY, RETURN, STATION_KEEP, NODE_REPORT, NODE_MESSAGE
+  qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ, AVOID, CHASE
+
+  bridge   = src=UP_LOITER_$N, alias=UP_LOITER
+  bridge   = src=HELM_MAP_CLEAR, alias=HELM_MAP_CLEAR
+  bridge   = src=FLAG_SUMMARY
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block from plugin
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 1
+  CommsTick = 1
+}
+
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+  
+  File          = LOG_SHORESIDE
+  PATH          = ./
+  SyncLog       = true @ 0.2
+  AsyncLog      = true
+  FileTimeStamp = true
+
+	LogAuxSrc     = true
+
+  // Log it all!!!!!
+  WildCardLogging = true 
+  WildCardOmitPattern = *_STATUS
+  WildCardOmitPattern = DB_VARSUMMARY
+  WildCardOmitPattern = DB_RWSUMMARY
+}
+
+
+//--------------------------------------------------------
+ProcessConfig = pMarineViewer
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  //TIFF_FILE            = forrest19.tif
+  TIFF_FILE            = AerialMIT.tif
+  set_pan_x            = -70
+  set_pan_y            = 80
+  zoom                 = 3.75
+  vehicles_shape_scale = 1.5
+  vehicles_name_mode   = names
+
+  circle_viewable_all = false
+  
+  appcast_viewable = true
+  appcast_color_scheme = indigo
+
+  scope = FLAG_GRAB_REPORT
+  scope = NODE_BROKER_PING
+  scope = DEPLOY_ALL
+
+  action = STATION_KEEP_ALL = false
+  action = STATION_KEEP_ALL = true
+  action = CHASE_ALL = false
+
+  button_one   = DEPLOY  # DEPLOY_ALL=true 
+  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
+  button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
+
+  button_two   = RETURN  # RETURN_ALL=true
+  button_two   = RETURN  # STATION_KEEP_ALL=false
+  button_three = CHASE   # CHASE_ALL=true
+  button_four  = STATION   # STATION_KEEP_ALL=true
+
+  op_vertex = x=0,   y=-20,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=120, y=-20,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=120, y=-180, lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=0,   y=-180, lwidth=1,lcolor=yellow,looped=true,group=moa
+}
+
+//--------------------------------------------------------
+// uProcessWatch Configuration Block
+
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  allow_retractions = true
+  
+  watch_all = true      // default is true
+
+  nowatch = uXMS*
+  nowatch = uPokeDB*
+
+  summary_wait = 12
+}

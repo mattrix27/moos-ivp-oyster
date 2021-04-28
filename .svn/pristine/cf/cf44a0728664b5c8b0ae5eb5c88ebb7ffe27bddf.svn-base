@@ -1,0 +1,47 @@
+% NS_B
+<s>         sil
+
+% NS_E
+</s>        sil
+
+#% NAME
+#EVAN        eh v ah n
+#FELIX       f iy l ih k s
+#GUS         g ah s
+#HAL         hh ae l
+#IDA         ay d ah
+#JING        jh ih ng
+#TEAM        t iy m
+
+%COMMAND_G
+RETURN      r ih t er n
+DEPLOY      d ih p l oy
+FOLLOW      f aa l ow
+STATION     s t ey sh ah n
+ATTACK      ah t ae k
+RIGHT	    r ay t
+LEFT	    l eh f t	
+DEFEND      d ih f eh n d
+COVER       k ah v er
+STATUS      s t ae t ah s
+INTERCEPT   ih n t er s eh p t
+SHIELD      sh iy l d
+
+%ACK
+YES         y eh s
+NO          n ow
+
+%INTERACT
+TAG         t ae g
+GRAB        g r ae b
+
+%COLOR
+BLUE	    b l uw
+RED	    r eh d
+
+%NUMBER
+ONE	    w ah n
+TWO	    t uw
+THREE	    th r iy
+FOUR	    f ao r
+

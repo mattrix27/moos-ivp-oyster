@@ -1,0 +1,58 @@
+ServerHost = localhost
+ServerPort = 9000
+Community = alpha
+
+ProcessConfig = ANTLER
+{
+
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = false
+	//Run = pRecord	@ NewConsole = false
+	//Run = iButtonBox @NewConsole = false
+	Run = pLogger @NewConsole = false
+}
+
+ProcessConfig = pRecord
+{
+   AppTick   = .2
+   CommsTick = 4
+
+}
+
+ProcessConfig = iButtonBox
+{
+	AppTick = 50
+	CommsTick = 50
+
+	PORT = /dev/cu.usbmodemFD121 //this adress can change each time an arduino is plugged in
+	BAUDRATE = 9600
+
+	BUTTON_0_NAME = SPEECH_BUTTON
+	BUTTON_1_NAME = SPEECH_BUTTON_1
+	BUTTON_2_NAME = SPEECH_BUTTON_2
+	BUTTON_3_NAME = SPEECH_BUTTON_3
+}
+
+ProcessConfig = pLogger
+{
+
+	AppTick  = 10
+        CommsTick  = 10
+
+	File = BUTTON_LOG
+	PATH = ./logs/			// change this to any path to log files
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	FileTimeStamp = true
+
+	LogAuxSrc = true
+
+	WildCardLogging = true
+
+	Log = SPEECH_BUTTON @ 0         // add any other buttons for logging
+
+}
+	
+
+

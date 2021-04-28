@@ -1,0 +1,56 @@
+Running Project Aquaticus Simulation Experiment and checking Log Files:
+
+To start an experiment from within the missions\aquaticus-USMA folder:
+$ ./launch_simulation.sh --round=1 --group=1 --pid=1 --cid=1
+
+As an experimenter I click on the screen:
+1.  ’DEPLOY’ button and the 
+2.  ‘AQUATICUS_GAME_ALL=play’ in the action pull-down menu
+
+
+
+When 10 minutes has run out — I then click on the screen:
+‘AQUATICUS_GAME_ALL=stop’ in the action pull-down menu
+
+
+Log Files are found within the directory structure with their own subfolders:
+
+missions/aquaticus-USMA
+				/shoreside
+					/C0001_LOG_SHORESIDE_28_2_2019_____12_20_58/
+											C001_LOG_SHORESIDE_28_2_2019_____12_20_58.alog
+				/mokai
+					/C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_20_56/
+												C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_20_56.alog
+				/heron
+					/C001_LOG_HAL_BLUE_TWO_28_2_2019_____12_20_55
+												/C001_LOG_HAL_BLUE_TWO_28_2_2019_____12_20_55.alog
+					/C001_LOG_FELIX_RED_TWO_28_2_2019_____12_20_54
+					/C001_LOG_EVAN_RED_ONE_28_2_2019______12_20_53
+				
+
+The data is viewed by looking inside the folders for each vehicle looking for a file with the extension '.alog'  Each vehicle and shoreside should be creating a new folder for each time that they are run which lists the date and time started.
+ 
+To see what variables are logged:
+$ alogscan vehicle.alog
+ 
+To select certain the output of only a few of the variables:
+$ aloggrep vehicle.alog [VARIABLE_LIST]
+for example $ aloggrep vehicle.alog SAY_MOOS SPEECH_RECOGNITION_SENTENCE
+
+To check for Aquaticus game starting and stopping:
+
+ aloggrep C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_27_15.alog AQUATICUS_GAME*
+aloggrep - Processing on file: C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_27_15.alog
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_27_15/C001_P001_LOG_DONA_BLUE_ONE_28_2_2019_____12_27_15.alog
+%% FILE OPENED ON  Wed Dec 31 19:00:00 1969
+%% LOGSTART               1551374835.23
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+17.636          AQUATICUS_GAME       pMarineViewer   play 
+325.284         AQUATICUS_GAME       pMarineViewer   stop 
+  Total lines retained: 7 (0.01%)
+  Total lines excluded: 121014 (99.99%)
+  Total chars retained: 443 (0.00%)
+  Total chars excluded: 9291375 (100.00%)
+    Variables retained: (1) AQUATICUS_GAME

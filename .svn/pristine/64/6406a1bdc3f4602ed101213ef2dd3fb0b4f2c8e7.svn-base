@@ -1,0 +1,13 @@
+//------------------------------------------------
+// pZoneTrackOpponents config block
+
+ProcessConfig = pZoneTrackOpponents
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   opfor=blue
+   zone=-14,-83,82,16
+   point=$(UNTAG_POS)
+}
+

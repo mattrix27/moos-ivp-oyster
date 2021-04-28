@@ -1,0 +1,446 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./LOG_RED_ONE_14_9_2018_____15_28_51/LOG_RED_ONE_14_9_2018_____15_28_51.alog
+%% FILE OPENED ON  Wed Dec 31 19:00:00 1969
+%% LOGSTART               1536953331.32
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+0.869           MOOS_DEBUG           pMarinePID      ** NEW CONTROLLER GAINS ARE ** 
+0.869           MOOS_DEBUG           pMarinePID      YAW_PID_KP             = 0.350 
+0.869           MOOS_DEBUG           pMarinePID      YAW_PID_KD             = 0.070 
+0.869           MOOS_DEBUG           pMarinePID      YAW_PID_KI             = 0.000 
+0.869           MOOS_DEBUG           pMarinePID      YAW_PID_INTEGRAL_LIMIT = 0.070 
+0.869           MOOS_DEBUG           pMarinePID      MAXRUDDER              = 100.000 
+0.871           MOOS_DEBUG           pMarinePID      SPEED_PID_KP           = 1.000 
+0.871           MOOS_DEBUG           pMarinePID      SPEED_PID_KD           = 0.000 
+0.871           MOOS_DEBUG           pMarinePID      SPEED_PID_KI           = 0.000 
+0.871           MOOS_DEBUG           pMarinePID      SPEED_PID_INTEGRAL_LIMIT = 0.070 
+0.871           MOOS_DEBUG           pMarinePID      MAXTHRUST              = 84.000 
+0.420           IVPHELM_REGISTER     pHelmIvP        NODE_REPORT_LOCAL 
+0.456           PROC_WATCH_TIME_WARP uProcessWatch   1.00000      
+0.457           PROC_WATCH_EVENT     uProcessWatch   Noted to be present: [pLogger] 
+0.551           APPCAST_REQ          uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+0.551           APPCAST_REQ_ALL      uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+0.669           LOGGER_DIRECTORY     pLogger         ./LOG_RED_ONE_14_9_2018_____15_28_51 
+0.835           DB_EVENT             MOOSDB_red_one  connected=pDeadManPost 
+0.940           DB_EVENT             MOOSDB_red_one  connected=iM200 
+0.959           APPCAST              uProcessWatch   proc=uProcessWatch!@#iter=1!@#node=red_one!@#iter=1!@#messages=Summary: !@!@Antler List: iM200,pBasicContactMgr,pBotDialog,pDeadManPost!@             pHelmIvP,pHostInfo,pLogger,pMarinePID,pNodeReportParse!@             pNodeReporter,pRangeEvent,pShare,uFldMessageHandler!@             uFldNodeBroker!@!@                                             Current    Max     !@ProcName             Watch Reason   Status   CPU Load   CPU Load!@------------------   ------------   ------   --------   --------!@iM200                ANT            [7;32mOK[0m       0.00       0.00    !@pBasicContactMgr     ANT            [7;32mOK[0m       0.00       0.00    !@pBotDialog           ANT            [7;32mOK[0m       0.00       0.00    !@pDeadManPost         ANT            [7;32mOK[0m       0.00       0.00    !@pHelmIvP             ANT WATCH      [7;32mOK[0m       0.00       0.00    !@pHostInfo            ANT            [7;32mOK[0m       0.00       0.00    !@pLogger              ANT            [7;32mOK[0m       1.57       1.57    !@pMarinePID           ANT WATCH      [7;32mOK[0m       0.00       0.00    !@pNodeReportParse     ANT            [7;32mOK[0m       0.00       0.00    !@pNodeReporter        ANT WATCH      [7;32mOK[0m       0.00       0.00    !@pRangeEvent          ANT            [7;32mOK[0m       0.00       0.00    !@pShare               ANT WATCH      [7;32mOK[0m       1.50       1.50    !@uFldMessageHandler   ANT            [7;32mOK[0m       0.00       0.00    !@uFldNodeBroker       ANT            [7;32mOK[0m       0.00       0.00    !@!@#!@#events_total=8!@#events=Noted to be present: [pRangeEvent]!@Noted to be present: [uFldMessageHandler]!@Noted to be present: [iM200]!@Noted to be present: [pDeadManPost]!@Noted to be present: [uFldNodeBroker]!@Noted to be present: [pHostInfo]!@Noted to be present: [pBasicContactMgr]!@Noted to be present: [pLogger]!@#run_warning_total=0!@# 
+0.974           MOOS_DEBUG           pMarinePID      Paused Due To Tardy HELM Input: THRUST=0 
+1.041           DB_EVENT             MOOSDB_red_one  connected=uFldMessageHandler 
+1.146           DB_EVENT             MOOSDB_red_one  connected=pRangeEvent 
+1.156           APPCAST_REQ          uMAC_1194       node=red_one,app=all,duration=0.1,key=uMAC_1194startup,thresh=any 
+1.156           APPCAST_REQ          uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+1.156           APPCAST_REQ_ALL      uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+1.228           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+1.228           APPCAST              pHelmIvP        proc=pHelmIvP!@#iter=1!@#node=red_one!@#iter=1!@#messages=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!!                                             !!!@!!  The helm is in the MALCONFIG state due to  !!!@!!  unresolved configuration warnings.         !!!@!!                                             !!!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!@#config_warnings=BehaviorSpec: failed to load dynamic behavior BHV_OpRegionRecover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Defense_Multi!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Cover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.246           DB_EVENT             MOOSDB_red_one  connected=pBotDialog 
+1.272           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,TIME=1536953332.59,LENGTH=4 
+1.272           APPCAST              pNodeReporter   proc=pNodeReporter!@#iter=1!@#node=red_one!@#iter=1!@#messages=Paused: false!@Vehicle Configuration:!@----------------------------!@     Vehicle name: red_one!@     Vehicle type: kayak!@   Vehicle length: 4.0!@!@Blackout Configuration:!@----------------------------!@Blackout interval: 0.00!@Blackout variance: 0.00!@!@AltNav Config and Status:!@----------------------------!@   ALT_NAV_PREFIX: !@     ALT_NAV_NAME: _GT!@ ALT_NAV_POSTINGS: 0!@!@Node Report Summary:!@----------------------------!@Reports Posted: 1!@ Latest Report: NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,!@                MODE=MALCONFIG,ALLSTOP=n/a,TIME=1536953332.59,!@                LENGTH=4!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.275           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=192.168.1.150:9300 
+1.352           DB_EVENT             MOOSDB_red_one  connected=pNodeReportParse 
+1.463           APPCAST              uProcessWatch   proc=uProcessWatch!@#iter=2!@#node=red_one!@#iter=2!@#messages=Summary: !@!@Antler List: iM200,pBasicContactMgr,pBotDialog,pDeadManPost!@             pHelmIvP,pHostInfo,pLogger,pMarinePID,pNodeReportParse!@             pNodeReporter,pRangeEvent,pShare,uFldMessageHandler!@             uFldNodeBroker!@!@                                             Current    Max     !@ProcName             Watch Reason   Status   CPU Load   CPU Load!@------------------   ------------   ------   --------   --------!@iM200                ANT            [7;32mOK[0m       0.00       0.00    !@pBasicContactMgr     ANT            [7;32mOK[0m       0.00       0.00    !@pBotDialog           ANT            [7;32mOK[0m       0.00       0.00    !@pDeadManPost         ANT            [7;32mOK[0m       0.00       0.00    !@pHelmIvP             ANT WATCH      [7;32mOK[0m       1.47       1.47    !@pHostInfo            ANT            [7;32mOK[0m       0.00       0.00    !@pLogger              ANT            [7;32mOK[0m       1.57       1.57    !@pMarinePID           ANT WATCH      [7;32mOK[0m       1.81       1.81    !@pNodeReportParse     ANT            [7;32mOK[0m       0.00       0.00    !@pNodeReporter        ANT WATCH      [7;32mOK[0m       0.77       0.77    !@pRangeEvent          ANT            [7;32mOK[0m       0.00       0.00    !@pShare               ANT WATCH      [7;32mOK[0m       1.50       1.50    !@uFldMessageHandler   ANT            [7;32mOK[0m       0.00       0.00    !@uFldNodeBroker       ANT            [7;32mOK[0m       0.00       0.00    !@!@#!@#events_total=8!@#events=Noted to be present: [pRangeEvent]!@Noted to be present: [uFldMessageHandler]!@Noted to be present: [iM200]!@Noted to be present: [pDeadManPost]!@Noted to be present: [uFldNodeBroker]!@Noted to be present: [pHostInfo]!@Noted to be present: [pBasicContactMgr]!@Noted to be present: [pLogger]!@#run_warning_total=0!@# 
+1.479           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+1.586           APPCAST              pBasicContactMgr proc=pBasicContactMgr!@#iter=1!@#node=red_one!@#iter=1!@#messages=DisplayRadii:              false!@Deriving X/Y from Lat/Lon: false!@Alert Configurations (1):!@---------------------!@Alert ID = trail!@  RANGE     = 140, !@  CPA_RANGE = 0, !@  ALERT_REG = n/a!@  ON_FLAG = TRAIL_INFO=name=$[VNAME]#contact=mokai!@!@Alert Status Summary: !@----------------------!@       List: !@    Alerted: !@  UnAlerted: !@    Retired: !@      Recap: !@!@Contact Status Summary:!@-----------------------!@Contact      Range     Alerts     Alerts     Alerts  !@            Actual     Total      Active     Resolved!@-------     ------     ------     ------     --------!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.602           PSHARE_INPUT_SUMMARY pShare          localhost:9311 
+1.639           APPCAST              pDeadManPost    proc=pDeadManPost!@#iter=1!@#node=red_one!@#iter=1!@#messages=Configuration:!@-------------------------------------!@      heart_var: HEARTBEAT!@    max_noheart: 15!@active_at_start: false!@    post_policy: reset!@      deadflags: (1)!@                [1] DEPLOY=false!@!@State:!@-------------------------------------!@  Elapsed Time: N/A!@Time Remaining: N/A!@    Heartbeats: 0!@Total Postings: 0!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.694           DB_TIME              MOOSDB_red_one  1536953333.00985 
+1.694           DB_UPTIME            MOOSDB_red_one  2.00879      
+1.694           DB_CLIENTS           MOOSDB_red_one  pNodeReportParse,pBotDialog,pRangeEvent,uFldMessageHandler,iM200,pDeadManPost,uFldNodeBroker,pHostInfo,pBasicContactMgr,pHelmIvP,pMarinePID,pNodeReporter,pLogger,pShare,uProcessWatch,uMAC_1194, 
+1.696           DB_QOS               MOOSDB_red_one  iM200=0:0.283003:0.283003:0,pBasicContactMgr=0:0.320911:0.280857:0,pBotDialog=0:0.117064:0.117064:0,pDeadManPost=0:0.126123:0.126123:0,pHelmIvP=0:0.338078:0.185966:0,pHostInfo=0:0.275135:0.275135:0,pLogger=0:0.277996:0.14019:0,pMarinePID=0:0.292063:0.232935:0,pNodeReportParse=0:0.165224:0.165224:0,pNodeReporter=0:0.295877:0.120878:0,pRangeEvent=0:0.145912:0.145912:0,pShare=0:0.227928:0.219107:0,uFldMessageHandler=0:0.123024:0.123024:0,uFldNodeBroker=0:0.260115:0.260115:0,uMAC_1194=0:0.215054:0.161886:0,uProcessWatch=0:0.164032:0.138998:0, 
+1.733           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+1.766           APPCAST_REQ          uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+1.766           APPCAST_REQ_ALL      uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+1.777           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=1,TIME=1536953333.09,LENGTH=4 
+1.932           APPCAST              uFldMessageHandler proc=uFldMessageHandler!@#iter=1!@#node=red_one!@#iter=1!@#messages=Overall Totals Summary!@======================================!@   Total Received Valid: 0!@                Invalid: 0!@               Rejected: 0!@    Time since last Msg: N/A!@!@Per Source Node Summary!@======================================!@Source  Total  Elapsed  Variable  Value!@------  -----  -------  --------  -----!@!@Last Few Messages: (oldest to newest) !@======================================!@Valid Mgs: !@  NONE  !@Invalid Mgs: !@  NONE  !@Rejected Mgs: !@  NONE  !@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.953           APPCAST              pRangeEvent     proc=pRangeEvent!@#iter=1!@#node=red_one!@#iter=1!@#messages=pRangeEvent Report!@============================================ !@!@Configuration Parameters:!@	MIN_RANGE = 0!@	MAX_RANGE = 10!@	Registred variables to be published:!@		> TAG_REQUEST : vname=$[SELFVNAME]!@!@Time  Vehicle  Range  POS_X  POS_Y!@----  -------  -----  -----  -----!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1.987           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+1.156           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=all,duration=0.1,key=uMAC_1194startup,thresh=any 
+1.272           NODE_REPORT_LOCAL_FIRST pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,TIME=1536953332.59,LENGTH=4 
+1.586           CONTACTS_RECAP       pBasicContactMgr  
+1.586           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00006      
+1.602           PSHARE_OUTPUT_SUMMARY pShare          NODE_BROKER_PING_0->NODE_BROKER_PING:192.168.1.150:9300 
+1.777           PNODEREPORTER_ITER_GAP pNodeReporter   1.01132      
+1.777           PNODEREPORTER_ITER_LEN pNodeReporter   0.00019      
+1.892           PDEADMANPOST_ITER_GAP pDeadManPost    1.00930      
+1.892           PDEADMANPOST_ITER_LEN pDeadManPost    0.00006      
+1.965           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00400      
+1.965           PROC_WATCH_SUMMARY   uProcessWatch   All Present 
+1.965           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00008      
+1.987           PHELMIVP_ITER_GAP    pHelmIvP        1.01400      
+1.987           IVPHELM_CPU          pHelmIvP        0.30657      
+1.987           PHELMIVP_ITER_LEN    pHelmIvP        0.00008      
+2.003           DESIRED_THRUST       pMarinePID      0.00000      
+2.057           APPCAST              pBotDialog      proc=pBotDialog!@#iter=1!@#node=red_one!@#iter=1!@#messages=!@!@CURRENT STATE: !@Ready For Command.!@!@CONVERSATIONS:!@!@BOT_DIALOG_STATUS:  is NOT ACTIVE!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.089           CONTACTS_RECAP       pBasicContactMgr  
+2.089           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00009      
+2.103           DESIRED_THRUST       pMarinePID      0.00000      
+2.143           PDEADMANPOST_ITER_GAP pDeadManPost    1.00523      
+2.143           PDEADMANPOST_ITER_LEN pDeadManPost    0.00118      
+2.163           APPCAST              pNodeReportParse proc=pNodeReportParse!@#iter=1!@#node=red_one!@#iter=1!@#messages============================================= !@File:                                        !@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four !@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.204           DESIRED_THRUST       pMarinePID      0.00000      
+2.237           PHELMIVP_ITER_GAP    pHelmIvP        1.00394      
+2.238           IVPHELM_CPU          pHelmIvP        0.30657      
+2.238           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+2.238           PHELMIVP_ITER_LEN    pHelmIvP        0.00012      
+2.279           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=192.168.1.150:9300 
+2.279           APPCAST              uFldNodeBroker  proc=uFldNodeBroker!@#iter=1!@#node=red_one!@#iter=1!@#messages=!@  Total OK  PHI_HOST_INFO    received: 0!@  Total BAD PHI_HOST_INFO    received: 0!@  Total HOST_INFO changes    received: 0!@  Total          PSHARE_CMD    posted: 2!@  Total BAD NODE_BROKER_ACK  received: 0!@!@===========================================================!@             Vehicle Node Information:!@===========================================================!@!@     Community: red_one!@        HostIP: !@   Port MOOSDB: !@     Time Warp: !@   TryHost IPs: 192.168.1.150!@      IRoutes: !@===========================================================!@            Shoreside Node(s) Information:!@===========================================================!@!@Community                      Pings  Pings  IP       Time!@Name       Route               Sent   Acked  Address  Warp!@---------  ------------------  -----  -----  -------  ----!@           192.168.1.150:9300  0      0                   !@!@Phase Completion Summary:!@------------------------------------!@ Phase 1: (N) Valid Host information retrieved (iroutes).!@ Phase 2: (Y) Valid TryHosts (1) configured.!@ Phase 3: (N) NODE_BROKER_PINGS are being sent to TryHosts.!@ Phase 4: (N) A Valid NODE_BROKER_ACK has been received.!@ Phase 5: (N) pShare requested to share user vars with shoreside.!@*Hint: Phase 1 problem. Check status/output of pHostInfo.              !@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.280           PNODEREPORTER_ITER_GAP pNodeReporter   1.00594      
+2.280           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=2,TIME=1536953333.6,LENGTH=4 
+2.280           PNODEREPORTER_ITER_LEN pNodeReporter   0.00006      
+2.305           DESIRED_THRUST       pMarinePID      0.00000      
+2.376           APPCAST_REQ          uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+2.376           APPCAST_REQ_ALL      uMAC_1194       node=all,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+2.393           PDEADMANPOST_ITER_GAP pDeadManPost    1.00154      
+2.393           PDEADMANPOST_ITER_LEN pDeadManPost    0.00006      
+2.407           DESIRED_THRUST       pMarinePID      0.00000      
+2.468           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00746      
+2.468           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00003      
+2.491           PHELMIVP_ITER_GAP    pHelmIvP        1.01464      
+2.491           IVPHELM_CPU          pHelmIvP        0.12082      
+2.491           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+2.491           PHELMIVP_ITER_LEN    pHelmIvP        0.00009      
+2.509           DESIRED_THRUST       pMarinePID      0.00000      
+2.591           CONTACTS_RECAP       pBasicContactMgr  
+2.591           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00003      
+2.609           DESIRED_THRUST       pMarinePID      0.00000      
+2.615           PSHARE_OUTPUT_SUMMARY pShare          NODE_BROKER_PING_0->NODE_BROKER_PING:192.168.1.150:9300 
+2.615           PSHARE_INPUT_SUMMARY pShare          localhost:9311 
+2.645           PDEADMANPOST_ITER_GAP pDeadManPost    1.00686      
+2.645           PDEADMANPOST_ITER_LEN pDeadManPost    0.00008      
+2.666           PHI_HOST_INFO        pHostInfo       community=red_one,hostip=10.189.109.235,port_db=9011,pshare_iroutes=10.189.109.235:9311,hostip_alts=,timewarp=1 
+2.666           APPCAST              pHostInfo       proc=pHostInfo!@#iter=1!@#node=red_one!@#iter=1!@#messages=!@  PHI_HOST_IP:         10.189.109.235[0m!@  PHI_HOST_IP_ALL:     10.189.109.235!@!@  PHI_HOST_IP_VERBOSE: OSX_WI-FI=10.189.109.235!@!@  PHI_HOST_PORT:       9011!@  PHI_PSHARES_IROUTES: localhost:9311!@  PHI_HOST_INFO:       community=red_one,hostip=10.189.109.235,!@                       port_db=9011,!@                       pshare_iroutes=10.189.109.235:9311,!@                       hostip_alts=,timewarp=1!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.709           APPCAST_REQ          uMAC_1194       node=red_one,app=uProcessWatch,duration=0.0,key=uMAC_1194,thresh=any 
+2.709           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=uProcessWatch,duration=0.0,key=uMAC_1194,thresh=any 
+2.712           DESIRED_THRUST       pMarinePID      0.00000      
+2.742           PHELMIVP_ITER_GAP    pHelmIvP        1.00407      
+2.742           IVPHELM_CPU          pHelmIvP        0.12082      
+2.742           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+2.742           PHELMIVP_ITER_LEN    pHelmIvP        0.00035      
+2.785           PNODEREPORTER_ITER_GAP pNodeReporter   1.00970      
+2.785           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=3,TIME=1536953334.1,LENGTH=4 
+2.785           PNODEREPORTER_ITER_LEN pNodeReporter   0.00013      
+2.813           DESIRED_THRUST       pMarinePID      0.00000      
+2.896           PDEADMANPOST_ITER_GAP pDeadManPost    1.00313      
+2.896           PDEADMANPOST_ITER_LEN pDeadManPost    0.00028      
+2.918           DESIRED_THRUST       pMarinePID      0.00000      
+2.972           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00782      
+2.972           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00001      
+2.979           APPCAST_REQ          uMAC_1194       node=red_one,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+2.979           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+2.996           PHELMIVP_ITER_GAP    pHelmIvP        1.01575      
+2.996           IVPHELM_CPU          pHelmIvP        0.24113      
+2.996           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+2.996           PHELMIVP_ITER_LEN    pHelmIvP        0.00015      
+3.021           DESIRED_THRUST       pMarinePID      0.00000      
+3.096           CONTACTS_RECAP       pBasicContactMgr  
+3.096           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00012      
+3.124           DESIRED_THRUST       pMarinePID      0.00000      
+1.932           UMH_SUMMARY_MSGS     uFldMessageHandler total=0,valid=0,rejected=0 
+1.965           PROC_WATCH_FULL_SUMMARY uProcessWatch   pShare(1/0),pHelmIvP(1/0),pMarinePID(1/0),pNodeReporter(1/0),pNodeReportParse(1/0),pBotDialog(1/0),pRangeEvent(1/0),uFldMessageHandler(1/0),iM200(1/0),pDeadManPost(1/0),uFldNodeBroker(1/0),pHostInfo(1/0),pBasicContactMgr(1/0),pLogger(1/0) 
+2.279           UFLDNODEBROKER_ITER_LEN uFldNodeBroker  0.00001      
+2.666           PHI_HOST_IP          pHostInfo       10.189.109.235 
+2.666           PHI_HOST_IP_ALL      pHostInfo       10.189.109.235 
+2.666           PHI_HOST_IP_VERBOSE  pHostInfo       OSX_WI-FI=10.189.109.235 
+2.666           PHI_HOST_PORT_DB     pHostInfo       9011 
+2.666           PHOSTINFO_ITER_LEN   pHostInfo       0.48835      
+2.922           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00275      
+2.922           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00016      
+2.939           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00289      
+2.939           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00015      
+2.964           PRANGEEVENT_ITER_GAP pRangeEvent     1.02059      
+2.964           PRANGEEVENT_ITER_LEN pRangeEvent     0.00012      
+3.066           PBOTDIALOG_ITER_GAP  pBotDialog      1.01449      
+3.066           PBOTDIALOG_ITER_LEN  pBotDialog      0.00024      
+3.096           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00888      
+3.146           PDEADMANPOST_ITER_GAP pDeadManPost    1.00175      
+3.146           PDEADMANPOST_ITER_LEN pDeadManPost    0.00012      
+3.177           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.01924      
+3.177           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00021      
+3.180           PHOSTINFO_ITER_LEN   pHostInfo       0.00003      
+3.218           PRANGEEVENT_ITER_GAP pRangeEvent     1.01528      
+3.218           PRANGEEVENT_ITER_LEN pRangeEvent     0.00015      
+3.229           DESIRED_THRUST       pMarinePID      0.00000      
+3.250           PHELMIVP_ITER_GAP    pHelmIvP        1.01682      
+3.250           IVPHELM_CPU          pHelmIvP        0.24113      
+3.250           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+3.250           PHELMIVP_ITER_LEN    pHelmIvP        0.00015      
+3.273           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00345      
+3.273           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00002      
+3.284           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=192.168.1.150:9300 
+3.284           NODE_BROKER_PING_0   uFldNodeBroker  community=red_one,hostip=10.189.109.235,port_db=9011,pshare_iroutes=10.189.109.235:9311,timewarp=1,time=1536953334.60,key=0 
+3.284           UFLDNODEBROKER_ITER_LEN uFldNodeBroker  0.00010      
+3.289           PNODEREPORTER_ITER_GAP pNodeReporter   1.00848      
+3.289           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=4,TIME=1536953334.61,LENGTH=4 
+3.289           PNODEREPORTER_ITER_LEN pNodeReporter   0.00006      
+3.320           PBOTDIALOG_ITER_GAP  pBotDialog      1.01768      
+3.320           PBOTDIALOG_ITER_LEN  pBotDialog      0.00013      
+3.330           DESIRED_THRUST       pMarinePID      0.00000      
+3.397           PDEADMANPOST_ITER_GAP pDeadManPost    1.00208      
+3.397           PDEADMANPOST_ITER_LEN pDeadManPost    0.00022      
+3.429           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00819      
+3.429           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00041      
+3.434           DESIRED_THRUST       pMarinePID      0.00000      
+3.472           PRANGEEVENT_ITER_GAP pRangeEvent     1.01740      
+3.472           PRANGEEVENT_ITER_LEN pRangeEvent     0.00010      
+3.473           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00170      
+3.473           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00005      
+3.506           PHELMIVP_ITER_GAP    pHelmIvP        1.02101      
+3.506           IVPHELM_CPU          pHelmIvP        0.31402      
+3.506           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+3.506           PHELMIVP_ITER_LEN    pHelmIvP        0.00032      
+3.537           DESIRED_THRUST       pMarinePID      0.00000      
+3.573           PBOTDIALOG_ITER_GAP  pBotDialog      1.01055      
+3.573           PBOTDIALOG_ITER_LEN  pBotDialog      0.00023      
+3.587           APPCAST_REQ          uMAC_1194       node=red_one,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+3.587           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=all,duration=3.0,key=uMAC_1194:app,thresh=run_warning 
+3.597           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00312      
+3.597           CONTACTS_RECAP       pBasicContactMgr  
+3.597           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00004      
+3.609           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00668      
+3.609           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00011      
+3.640           PSHARE_OUTPUT_SUMMARY pShare          NODE_BROKER_PING_0->NODE_BROKER_PING:192.168.1.150:9300 
+3.640           DESIRED_THRUST       pMarinePID      0.00000      
+3.640           PSHARE_INPUT_SUMMARY pShare          localhost:9311 
+3.651           PDEADMANPOST_ITER_GAP pDeadManPost    1.01705      
+3.651           PDEADMANPOST_ITER_LEN pDeadManPost    0.00002      
+3.681           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00641      
+3.681           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00014      
+3.723           PRANGEEVENT_ITER_GAP pRangeEvent     1.00369      
+3.723           PRANGEEVENT_ITER_LEN pRangeEvent     0.00010      
+3.724           DB_TIME              MOOSDB_red_one  1536953335.03956 
+3.724           DB_UPTIME            MOOSDB_red_one  4.03850      
+3.724           DB_CLIENTS           MOOSDB_red_one  pNodeReportParse,pBotDialog,pRangeEvent,uFldMessageHandler,iM200,pDeadManPost,uFldNodeBroker,pHostInfo,pBasicContactMgr,pHelmIvP,pMarinePID,pNodeReporter,pLogger,pShare,uProcessWatch,uMAC_1194, 
+3.724           DB_QOS               MOOSDB_red_one  iM200=0:0.283003:0.158072:0,pBasicContactMgr=0:0.427961:0.154018:0,pBotDialog=0:0.211:0.117064:0,pDeadManPost=0:0.234127:0.126123:0,pHelmIvP=0:0.338078:0.185966:0,pHostInfo=0:0.525951:0.275135:0,pLogger=0:0.317097:0.14019:0,pMarinePID=0:0.414133:0.0991821:0,pNodeReportParse=0:0.475168:0.165224:0,pNodeReporter=0:0.371933:0.120878:0,pRangeEvent=0:0.356913:0.136137:0,pShare=0:0.238895:0.187159:0,uFldMessageHandler=0:0.251055:0.123024:0,uFldNodeBroker=0:0.319958:0.185013:0,uMAC_1194=0:0.254869:0.161886:0,uProcessWatch=0:0.226974:0.118971:0, 
+3.743           DESIRED_THRUST       pMarinePID      0.00000      
+3.758           PHELMIVP_ITER_GAP    pHelmIvP        1.00811      
+3.758           IVPHELM_CPU          pHelmIvP        0.31402      
+3.758           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+3.758           PHELMIVP_ITER_LEN    pHelmIvP        0.00030      
+3.790           PNODEREPORTER_ITER_GAP pNodeReporter   1.00201      
+3.790           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=5,TIME=1536953335.11,LENGTH=4 
+3.790           PNODEREPORTER_ITER_LEN pNodeReporter   0.00043      
+3.824           PBOTDIALOG_ITER_GAP  pBotDialog      1.00272      
+3.824           PBOTDIALOG_ITER_LEN  pBotDialog      0.00011      
+3.846           DESIRED_THRUST       pMarinePID      0.00000      
+3.906           PDEADMANPOST_ITER_GAP pDeadManPost    1.02052      
+3.906           PDEADMANPOST_ITER_LEN pDeadManPost    0.00029      
+3.931           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00238      
+3.931           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00030      
+3.945           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00795      
+3.945           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00002      
+3.948           DESIRED_THRUST       pMarinePID      0.00000      
+3.976           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00644      
+3.976           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00005      
+3.977           PRANGEEVENT_ITER_GAP pRangeEvent     1.01542      
+3.977           PRANGEEVENT_ITER_LEN pRangeEvent     0.00002      
+4.011           PHELMIVP_ITER_GAP    pHelmIvP        1.01464      
+4.011           IVPHELM_CPU          pHelmIvP        0.33794      
+4.011           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+4.011           PHELMIVP_ITER_LEN    pHelmIvP        0.00018      
+4.051           DESIRED_THRUST       pMarinePID      0.00000      
+4.077           PBOTDIALOG_ITER_GAP  pBotDialog      1.01139      
+4.077           PBOTDIALOG_ITER_LEN  pBotDialog      0.00004      
+4.088           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=0.0,key=uMAC_1194,thresh=any 
+4.088           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=0.0,key=uMAC_1194,thresh=any 
+4.088           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=10.0,key=uMAC_1194,thresh=any 
+4.088           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=10.0,key=uMAC_1194,thresh=any 
+4.099           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00388      
+4.099           CONTACTS_RECAP       pBasicContactMgr  
+4.099           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00012      
+4.153           DESIRED_THRUST       pMarinePID      0.00000      
+4.157           PDEADMANPOST_ITER_GAP pDeadManPost    1.00488      
+4.157           PDEADMANPOST_ITER_LEN pDeadManPost    0.00017      
+4.182           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00266      
+4.182           PHOSTINFO_ITER_LEN   pHostInfo       0.00001      
+4.182           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00004      
+4.193           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+4.193           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+4.229           PRANGEEVENT_ITER_GAP pRangeEvent     1.00632      
+4.229           PRANGEEVENT_ITER_LEN pRangeEvent     0.00030      
+4.257           DESIRED_THRUST       pMarinePID      0.00000      
+4.265           PHELMIVP_ITER_GAP    pHelmIvP        1.01632      
+4.265           IVPHELM_CPU          pHelmIvP        0.33794      
+4.265           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+4.265           PHELMIVP_ITER_LEN    pHelmIvP        0.00021      
+4.265           APPCAST              pHelmIvP        proc=pHelmIvP!@#iter=13!@#node=red_one!@#iter=13!@#messages=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!!                                             !!!@!!  The helm is in the MALCONFIG state due to  !!!@!!  unresolved configuration warnings.         !!!@!!                                             !!!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!@#config_warnings=BehaviorSpec: failed to load dynamic behavior BHV_OpRegionRecover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Defense_Multi!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Cover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.278           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 0.99938      
+4.278           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00010      
+4.287           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=192.168.1.150:9300 
+4.287           NODE_BROKER_PING_0   uFldNodeBroker  community=red_one,hostip=10.189.109.235,port_db=9011,pshare_iroutes=10.189.109.235:9311,timewarp=1,time=1536953335.60,key=0 
+4.182           PHOSTINFO_ITER_GAP   pHostInfo       1.00203      
+4.287           UFLDNODEBROKER_ITER_GAP uFldNodeBroker  1.00391      
+4.287           UFLDNODEBROKER_ITER_LEN uFldNodeBroker  0.00004      
+4.291           PNODEREPORTER_ITER_GAP pNodeReporter   1.00179      
+4.291           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=6,TIME=1536953335.61,LENGTH=4 
+4.291           PNODEREPORTER_ITER_LEN pNodeReporter   0.00022      
+4.332           PBOTDIALOG_ITER_GAP  pBotDialog      1.02032      
+4.332           PBOTDIALOG_ITER_LEN  pBotDialog      0.00012      
+4.361           DESIRED_THRUST       pMarinePID      0.00000      
+4.408           PDEADMANPOST_ITER_GAP pDeadManPost    1.00042      
+4.408           PDEADMANPOST_ITER_LEN pDeadManPost    0.00005      
+4.432           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00109      
+4.432           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00016      
+4.465           DESIRED_THRUST       pMarinePID      0.00000      
+4.477           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00113      
+4.477           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00004      
+4.482           PRANGEEVENT_ITER_GAP pRangeEvent     1.01325      
+4.482           PRANGEEVENT_ITER_LEN pRangeEvent     0.00008      
+4.516           PHELMIVP_ITER_GAP    pHelmIvP        1.00141      
+4.516           IVPHELM_CPU          pHelmIvP        0.32854      
+4.516           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+4.516           PHELMIVP_ITER_LEN    pHelmIvP        0.00019      
+4.566           DESIRED_THRUST       pMarinePID      0.00000      
+4.582           PBOTDIALOG_ITER_GAP  pBotDialog      1.00324      
+4.582           PBOTDIALOG_ITER_LEN  pBotDialog      0.00023      
+4.604           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00938      
+4.604           CONTACTS_RECAP       pBasicContactMgr  
+4.604           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00021      
+4.615           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.01296      
+4.616           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00019      
+4.642           PSHARE_OUTPUT_SUMMARY pShare          NODE_BROKER_PING_0->NODE_BROKER_PING:192.168.1.150:9300 
+4.642           PSHARE_INPUT_SUMMARY pShare          localhost:9311 
+4.658           PDEADMANPOST_ITER_GAP pDeadManPost    1.00343      
+4.658           PDEADMANPOST_ITER_LEN pDeadManPost    0.00013      
+4.670           DESIRED_THRUST       pMarinePID      0.00000      
+4.684           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00731      
+4.684           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00026      
+4.736           PRANGEEVENT_ITER_GAP pRangeEvent     1.01435      
+4.736           PRANGEEVENT_ITER_LEN pRangeEvent     0.00018      
+4.769           PHELMIVP_ITER_GAP    pHelmIvP        1.01401      
+4.769           IVPHELM_CPU          pHelmIvP        0.32854      
+4.769           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+4.769           PHELMIVP_ITER_LEN    pHelmIvP        0.00022      
+4.769           APPCAST              pHelmIvP        proc=pHelmIvP!@#iter=15!@#node=red_one!@#iter=15!@#messages=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!!                                             !!!@!!  The helm is in the MALCONFIG state due to  !!!@!!  unresolved configuration warnings.         !!!@!!                                             !!!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!@#config_warnings=BehaviorSpec: failed to load dynamic behavior BHV_OpRegionRecover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Defense_Multi!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Cover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.770           DESIRED_THRUST       pMarinePID      0.00000      
+4.792           PNODEREPORTER_ITER_GAP pNodeReporter   1.00113      
+4.792           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=7,TIME=1536953336.11,LENGTH=4 
+4.792           PNODEREPORTER_ITER_LEN pNodeReporter   0.00011      
+4.803           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+4.803           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+4.835           PBOTDIALOG_ITER_GAP  pBotDialog      1.01221      
+4.836           PBOTDIALOG_ITER_LEN  pBotDialog      0.00025      
+4.870           DESIRED_THRUST       pMarinePID      0.00000      
+4.908           PDEADMANPOST_ITER_GAP pDeadManPost    1.00040      
+4.909           PDEADMANPOST_ITER_LEN pDeadManPost    0.00008      
+4.938           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.01736      
+4.938           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00015      
+4.951           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00528      
+4.951           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00014      
+4.972           DESIRED_THRUST       pMarinePID      0.00000      
+4.981           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00865      
+4.981           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00001      
+4.988           PRANGEEVENT_ITER_GAP pRangeEvent     1.00925      
+4.988           PRANGEEVENT_ITER_LEN pRangeEvent     0.00011      
+5.025           PHELMIVP_ITER_GAP    pHelmIvP        1.02247      
+5.025           IVPHELM_CPU          pHelmIvP        0.28698      
+5.025           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+5.025           PHELMIVP_ITER_LEN    pHelmIvP        0.00017      
+5.076           DESIRED_THRUST       pMarinePID      0.00000      
+5.087           PBOTDIALOG_ITER_GAP  pBotDialog      1.00710      
+5.087           PBOTDIALOG_ITER_LEN  pBotDialog      0.00013      
+5.108           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00726      
+5.108           CONTACTS_RECAP       pBasicContactMgr  
+5.108           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00012      
+5.163           PDEADMANPOST_ITER_GAP pDeadManPost    1.01740      
+5.163           PDEADMANPOST_ITER_LEN pDeadManPost    0.00030      
+5.176           DESIRED_THRUST       pMarinePID      0.00000      
+5.183           PHOSTINFO_ITER_GAP   pHostInfo       1.00133      
+5.183           PHOSTINFO_ITER_LEN   pHostInfo       0.00003      
+5.192           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.01688      
+5.192           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00022      
+5.242           PRANGEEVENT_ITER_GAP pRangeEvent     1.01766      
+5.242           PRANGEEVENT_ITER_LEN pRangeEvent     0.00031      
+5.276           PHELMIVP_ITER_GAP    pHelmIvP        1.00647      
+5.276           IVPHELM_CPU          pHelmIvP        0.28698      
+5.276           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+5.276           PHELMIVP_ITER_LEN    pHelmIvP        0.00006      
+5.277           APPCAST              pHelmIvP        proc=pHelmIvP!@#iter=17!@#node=red_one!@#iter=17!@#messages=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!!                                             !!!@!!  The helm is in the MALCONFIG state due to  !!!@!!  unresolved configuration warnings.         !!!@!!                                             !!!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!@#config_warnings=BehaviorSpec: failed to load dynamic behavior BHV_OpRegionRecover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Defense_Multi!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Cover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@#events_total=0!@#!@#run_warning_total=0!@# 
+5.277           DESIRED_THRUST       pMarinePID      0.00000      
+5.288           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.01121      
+5.288           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00014      
+5.291           UFLDNODEBROKER_ITER_GAP uFldNodeBroker  1.00353      
+5.291           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=192.168.1.150:9300 
+5.291           NODE_BROKER_PING_0   uFldNodeBroker  community=red_one,hostip=10.189.109.235,port_db=9011,pshare_iroutes=10.189.109.235:9311,timewarp=1,time=1536953336.61,key=0 
+5.291           UFLDNODEBROKER_ITER_LEN uFldNodeBroker  0.00011      
+5.292           PNODEREPORTER_ITER_GAP pNodeReporter   1.00099      
+5.292           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=8,TIME=1536953336.61,LENGTH=4 
+5.292           PNODEREPORTER_ITER_LEN pNodeReporter   0.00006      
+5.338           PBOTDIALOG_ITER_GAP  pBotDialog      1.00448      
+5.338           PBOTDIALOG_ITER_LEN  pBotDialog      0.00011      
+5.380           DESIRED_THRUST       pMarinePID      0.00000      
+5.415           PDEADMANPOST_ITER_GAP pDeadManPost    1.00686      
+5.415           PDEADMANPOST_ITER_LEN pDeadManPost    0.00022      
+5.415           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+5.415           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+5.443           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00340      
+5.443           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00020      
+5.484           DESIRED_THRUST       pMarinePID      0.00000      
+5.484           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00641      
+5.485           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00006      
+5.497           PRANGEEVENT_ITER_GAP pRangeEvent     1.01958      
+5.497           PRANGEEVENT_ITER_LEN pRangeEvent     0.00014      
+5.529           PHELMIVP_ITER_GAP    pHelmIvP        1.01033      
+5.529           IVPHELM_CPU          pHelmIvP        0.36147      
+5.529           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+5.529           PHELMIVP_ITER_LEN    pHelmIvP        0.00016      
+5.589           DESIRED_THRUST       pMarinePID      0.00000      
+5.593           PBOTDIALOG_ITER_GAP  pBotDialog      1.01728      
+5.593           PBOTDIALOG_ITER_LEN  pBotDialog      0.00014      
+5.613           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00996      
+5.613           CONTACTS_RECAP       pBasicContactMgr  
+5.613           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00004      
+5.625           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.01114      
+5.625           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00024      
+5.653           PSHARE_OUTPUT_SUMMARY pShare          NODE_BROKER_PING_0->NODE_BROKER_PING:192.168.1.150:9300 
+5.653           PSHARE_INPUT_SUMMARY pShare          localhost:9311 
+5.668           PDEADMANPOST_ITER_GAP pDeadManPost    1.01387      
+5.668           PDEADMANPOST_ITER_LEN pDeadManPost    0.00003      
+5.693           DESIRED_THRUST       pMarinePID      0.00000      
+5.695           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00822      
+5.695           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00012      
+5.751           PRANGEEVENT_ITER_GAP pRangeEvent     1.01638      
+5.751           PRANGEEVENT_ITER_LEN pRangeEvent     0.00019      
+5.752           DB_TIME              MOOSDB_red_one  1536953337.06766 
+5.752           DB_UPTIME            MOOSDB_red_one  6.06662      
+5.752           DB_CLIENTS           MOOSDB_red_one  pNodeReportParse,pBotDialog,pRangeEvent,uFldMessageHandler,iM200,pDeadManPost,uFldNodeBroker,pHostInfo,pBasicContactMgr,pHelmIvP,pMarinePID,pNodeReporter,pLogger,pShare,uProcessWatch,uMAC_1194, 
+5.753           DB_QOS               MOOSDB_red_one  iM200=0.343084:0.343084:0.158072:0.264597,pBasicContactMgr=0.348091:0.427961:0.154018:0.306368,pBotDialog=0.148058:0.211:0.117064:0.165415,pDeadManPost=0.173092:0.364065:0.126123:0.216055,pHelmIvP=0.29397:0.338078:0.185966:0.257158,pHostInfo=0.306129:0.525951:0.275135:0.395012,pLogger=0.160933:0.344038:0.14019:0.215054,pMarinePID=0.36788:0.414133:0.0991821:0.281239,pNodeReportParse=0.383139:0.475168:0.165224:0.301695,pNodeReporter=0.221968:0.371933:0.120878:0.23036,pRangeEvent=0.475168:0.475168:0.136137:0.284243,pShare=0.236988:0.238895:0.165939:0.222015,uFldMessageHandler=0.408888:0.408888:0.123024:0.243235,uFldNodeBroker=0.370026:0.447035:0.185013:0.316429,uMAC_1194=0.30303:0.31805:0.161886:0.237608,uProcessWatch=0.157118:0.226974:0.118971:0.161219, 
+5.781           PHELMIVP_ITER_GAP    pHelmIvP        1.00748      
+5.781           IVPHELM_CPU          pHelmIvP        0.36147      
+5.781           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+5.781           PHELMIVP_ITER_LEN    pHelmIvP        0.00014      
+5.781           APPCAST              pHelmIvP        proc=pHelmIvP!@#iter=19!@#node=red_one!@#iter=19!@#messages=!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!!                                             !!!@!!  The helm is in the MALCONFIG state due to  !!!@!!  unresolved configuration warnings.         !!!@!!                                             !!!@!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@!@#config_warnings=BehaviorSpec: failed to load dynamic behavior BHV_OpRegionRecover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_AvdColregsV2!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Defense_Multi!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@BehaviorSpec: failed to load dynamic behavior BHV_Cover!@Check IVP_BEHAVIOR_DIRS Env Variable or ivp_behavior_dir param!@#events_total=0!@#!@#run_warning_total=0!@# 
+5.793           PNODEREPORTER_ITER_GAP pNodeReporter   1.00212      
+5.793           NODE_REPORT_LOCAL    pNodeReporter   NAME=red_one,TYPE=kayak,COLOR=red,GROUP=red,MODE=MALCONFIG,ALLSTOP=n/a,INDEX=9,TIME=1536953337.11,LENGTH=4 
+5.793           PNODEREPORTER_ITER_LEN pNodeReporter   0.00012      
+5.797           DESIRED_THRUST       pMarinePID      0.00000      
+5.844           PBOTDIALOG_ITER_GAP  pBotDialog      1.00530      
+5.844           PBOTDIALOG_ITER_LEN  pBotDialog      0.00016      
+5.902           DESIRED_THRUST       pMarinePID      0.00000      
+5.918           PDEADMANPOST_ITER_GAP pDeadManPost    1.00060      
+5.918           PDEADMANPOST_ITER_LEN pDeadManPost    0.00011      
+5.950           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.01902      
+5.950           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00071      
+5.961           UFLDMESSAGEHANDLER_ITER_GAP uFldMessageHandler 1.00909      
+5.961           UFLDMESSAGEHANDLER_ITER_LEN uFldMessageHandler 0.00002      
+5.990           UPROCESSWATCH_ITER_GAP uProcessWatch   1.01051      
+5.990           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00006      
+6.002           DESIRED_THRUST       pMarinePID      0.00000      
+6.002           PRANGEEVENT_ITER_GAP pRangeEvent     1.00382      
+6.002           PRANGEEVENT_ITER_LEN pRangeEvent     0.00002      
+6.023           APPCAST_REQ          uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+6.023           APPCAST_REQ_RED_ONE  uMAC_1194       node=red_one,app=pHelmIvP,duration=3.0,key=uMAC_1194:app,thresh=any 
+6.034           PHELMIVP_ITER_GAP    pHelmIvP        1.01155      
+6.034           IVPHELM_CPU          pHelmIvP        0.31888      
+6.034           IVPHELM_STATE        pHelmIvP        MALCONFIG 
+6.034           PHELMIVP_ITER_LEN    pHelmIvP        0.00025      
+6.098           PBOTDIALOG_ITER_GAP  pBotDialog      1.01568      
+6.098           PBOTDIALOG_ITER_LEN  pBotDialog      0.00003      
+6.103           DESIRED_THRUST       pMarinePID      0.00000      
+6.114           PBASICCONTACTMGR_ITER_GAP pBasicContactMgr 1.00299      
+6.114           CONTACTS_RECAP       pBasicContactMgr  
+6.114           PBASICCONTACTMGR_ITER_LEN pBasicContactMgr 0.00010      
+6.172           PDEADMANPOST_ITER_GAP pDeadManPost    1.01340      
+6.172           PDEADMANPOST_ITER_LEN pDeadManPost    0.00039      
+6.188           PHOSTINFO_ITER_GAP   pHostInfo       1.00501      
+6.188           PHOSTINFO_ITER_LEN   pHostInfo       0.00001      
+6.201           PNODEREPORTPARSE_ITER_GAP pNodeReportParse 1.00322      
+6.201           PNODEREPORTPARSE_ITER_LEN pNodeReportParse 0.00004      
+6.206           DESIRED_THRUST       pMarinePID      0.00000      

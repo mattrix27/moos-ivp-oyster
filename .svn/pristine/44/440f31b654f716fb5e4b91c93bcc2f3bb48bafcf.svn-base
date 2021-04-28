@@ -1,0 +1,13 @@
+
+===============================================================
+pEchoVar Example MOOS Configuration
+===============================================================
+
+ProcessConfig = pEchoVar
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  Echo 	  = META_HEADING ->  NAV_HEADING
+  Echo 	  = YAW          ->  COMPASS_HEADING
+}

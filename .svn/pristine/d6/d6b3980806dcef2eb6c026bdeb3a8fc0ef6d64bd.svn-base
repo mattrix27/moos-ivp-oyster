@@ -1,0 +1,15 @@
+//--------------------------------------------------------
+// pNodeReporter Configuration Block (Created from Plugin)
+
+ProcessConfig = pNodeReporter
+{
+  AppTick     = 2
+  CommsTick   = 2
+  
+  vessel_type = mokai
+  //vessel_type = KAYAK
+
+	#ifdef VGROUP
+	group = $(VGROUP)
+	#endif
+}

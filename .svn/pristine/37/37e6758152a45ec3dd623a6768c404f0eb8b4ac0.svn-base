@@ -1,0 +1,14 @@
+ProcessConfig = uTimerScript
+{
+   AppTick = 4
+   CommsTick = 4
+
+   script_name = SPEECH_REC_OFF
+   reset_max = any
+   condition = JOY$(JOY_ID)_BUTTON_2 = UP
+   EVENT = var=SPEECH_ACTIVE, val=FALSE
+   EVENT = var=BUTTON_AMBIENT, val=TRUE
+   //reset_time = all-posted
+   EVENT = var=UTS_RESET, val=TRUE
+
+}

@@ -1,0 +1,24 @@
+0	[<s>]	sil
+1	[</s>]	sil
+2	[RETURN]	r ih t er n
+2	[DEPLOY]	d ih p l oy
+2	[FOLLOW]	f aa l ow
+2	[STATION]	s t ey sh ah n
+2	[ATTACK]	ah t ae k
+2	[RIGHT]	r ay t
+2	[LEFT]	l eh f t
+2	[DEFEND]	d ih f eh n d
+2	[COVER]	k ah v er
+2	[STATUS]	s t ae t ah s
+2	[INTERCEPT]	ih n t er s eh p t
+2	[SHIELD]	sh iy l d
+3	[YES]	y eh s
+3	[NO]	n ow
+4	[TAG]	t ae g
+4	[GRAB]	g r ae b
+5	[BLUE]	b l uw
+5	[RED]	r eh d
+6	[ONE]	w ah n
+6	[TWO]	t uw
+6	[THREE]	th r iy
+6	[FOUR]	f ao r

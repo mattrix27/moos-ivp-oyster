@@ -1,0 +1,15 @@
+//------------------------------------------------
+// pComms_server config block
+
+ProcessConfig = pComms_server
+{
+   AppTick   = 4
+   CommsTick = 4
+
+//ServerSocket as integer
+   ServerSocket = 11111
+//ServerIP in string format Question -- why not just localhost?
+   ServerIP = 192.168.0.8
+
+}
+

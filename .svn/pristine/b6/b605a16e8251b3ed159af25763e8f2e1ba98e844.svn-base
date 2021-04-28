@@ -1,0 +1,83 @@
+##############################################################################
+# FILE:        moos-ivp-speech/README_SPEECH_DEPENDENCIES
+# DATE:        2015/11/06
+# DESCRIPTION: Contains important information regarding the moos-ivp-speech
+#              repository.
+##############################################################################
+
+#=============================================================================
+# Introduction
+#=============================================================================
+The moos-ivp-extend repository contains examples for extending the MOOS-IvP
+Autonomy system. This includes a MOOS application and an IvP behavior.
+
+
+#=============================================================================
+# Directory Structure
+#=============================================================================
+The directory structure for the moos-ivp-extend is decribed below:
+
+bin              - Directory for generated executable files
+build            - Directory for build object files
+build.sh         - Script for building moos-ivp-extend
+CMakeLists.txt   - CMake configuration file for the project
+data             - Directory for storing data
+lib              - Directory for generated library files
+missions         - Directory for mission files
+README           - Contains helpful information - (this file).
+scripts          - Directory for script files
+src              - Directory for source code
+
+
+#=============================================================================
+# Build Instructions
+#=============================================================================
+#--------------------
+# Linux and Mac Users
+#--------------------
+
+MAC Dependencies:
+YOU MUST FIRST ADD THIS TO YOUR .profile or corresponding library path:
+export LIBRARY_PATH=/opt/local/lib to either your .profile, .bash_profile, or .bashrc
+
+It is necessary because unfortunately MacPorts is not properly adding the library path.
+
+And then add the packages for Julius, portaudio, and libsndfile:
+sudo port install julius portaudio libsndfile
+
+
+Ubuntu Dependencies:
+sudo apt-get install julius julius-dev libportaudio-dev libpulse-dev libasound2-dev portaudio19-dev libsndfile1-dev
+
+To build on Linux and Apple platforms, execute the build script within this
+directory:
+
+   $ ./build.sh
+
+To build without using the supplied script, execute the following commands
+within this directory:
+
+   $ mkdir -p build
+   $ cd build
+   $ cmake ../
+   $ make
+   $ cd ..
+
+
+#--------------
+# Windows Users
+#--------------
+
+Please reconsider your use of Windows as we do not have an active way to 
+support that OS.
+
+#=============================================================================
+# Environment variables
+#=============================================================================
+The moos-ivp-speech binaries files should be added to your path to allow them
+to be launched from pAntler. 
+
+##############################################################################
+#                               END of README
+##############################################################################
+

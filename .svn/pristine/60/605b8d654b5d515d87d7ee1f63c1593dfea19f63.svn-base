@@ -1,0 +1,10 @@
+ProcessConfig = iMumbleClient
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   AUDIO_TX_KEY = BUTTON_VOIP
+   SERVER_IP = $(SHORE_IP)
+   SERVER_PORT = 64738
+   CHANNEL_ID = $(VTEAM)
+}

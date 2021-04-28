@@ -1,0 +1,349 @@
+// mokai.bhv
+//
+// Alon Yaari, May 2014
+//
+// Sample behavior file to demonstrate iActuationMokai
+
+initialize   DEPLOY = false
+initialize   RETURN = false
+initialize   LEG    = 0
+
+Behavior = BHV_HSLine
+{
+  name        = hsline
+  time_on_leg = 10
+}
+
+//Behavior = BHV_Waypoint
+{ 
+  name      = waypt_survey
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  endflag   = RETURN = true
+
+  idleflag  = WPTING = idle
+  runflag   = WPTING = running
+  endflag   = WPTING = end
+  inactiveflag = WPTING = inactive
+
+  UPDATES   = WPT_UPDATE
+  perpetual = true
+
+               lead = 8
+        lead_damper = 1
+              speed = 2   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 0,0:25,0:25,-25:50,-25:50,0:75,0:75,-25:50,-25:50,-50:25,-50:25,-25:0,-25:0,0
+             repeat = 100
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_legStart
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 0
+  endflag   = LEG = 1
+
+               lead = 8
+        lead_damper = 1
+              speed = 3.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 0,0:25,0
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg1
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 1
+  endflag   = LEG = 2
+
+               lead = 8
+        lead_damper = 1
+              speed = 4.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 25,0:25,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg2
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 2
+  endflag   = LEG = 3
+
+               lead = 8
+        lead_damper = 1
+              speed = 5.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 25,-25:50,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg3
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 3
+  endflag   = LEG = 4
+
+               lead = 8
+        lead_damper = 1
+              speed = 2.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 50,-25:50,0
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg4
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 4
+  endflag   = LEG = 5
+
+               lead = 8
+        lead_damper = 1
+              speed = 3.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 50,0:75,0
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg5
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 5
+  endflag   = LEG = 6
+
+               lead = 8
+        lead_damper = 1
+              speed = 4.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 75,0:75,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg6
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 6
+  endflag   = LEG = 7
+
+               lead = 8
+        lead_damper = 1
+              speed = 5.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 75,-25:50,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg7
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 7
+  endflag   = LEG = 8
+
+               lead = 8
+        lead_damper = 1
+              speed = 3.0   // meters per second
+       capture_line = true
+     capture_radius = 2.0
+        slip_radius = 15.0
+             points = 50,-25:50,-50
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg8
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 8
+  endflag   = LEG = 9
+
+               lead = 8
+        lead_damper = 1
+              speed = 3.0   // meters per second
+       capture_line = true
+     capture_radius = 3.0
+        slip_radius = 15.0
+             points = 50,-50:25,-50
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_leg9
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 9
+  endflag   = LEG = 10
+
+               lead = 8
+        lead_damper = 1
+              speed = 4.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 25,-50:25,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_legA
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 10
+  endflag   = LEG = 11
+
+               lead = 8
+        lead_damper = 1
+              speed = 5.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 25,-25:0,-25
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_legB
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  condition = LEG = 11
+  endflag   = LEG = 0
+
+               lead = 8
+        lead_damper = 1
+              speed = 2.0   // meters per second
+       capture_line = true
+     capture_radius = 5.0
+        slip_radius = 15.0
+             points = 0,-25:0,0
+          perpetual = true
+
+    visual_hints = nextpt_color=yellow
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=gray70
+    visual_hints = vertex_color=dodger_blue, edge_color=white
+    visual_hints = vertex_size=5, edge_size=1
+}
+

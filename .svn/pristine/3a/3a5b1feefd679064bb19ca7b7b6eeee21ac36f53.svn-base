@@ -1,0 +1,264 @@
+initialize PATROL = false
+initialize TRAILING_ALLOWED = true
+initialize TRAIL = false
+initialize   AVOID_TYPE = colregs
+initialize   AVOID = true
+initialize STATION_KEEP = true
+initialize RETURN = false
+
+//-----------------------------------------------
+// Helm Behavior File
+
+set MODE = ACTIVE {
+  DEPLOY = true
+} INACTIVE
+
+set MODE = RETURNING {
+  MODE = ACTIVE
+  RETURN = true
+} 
+
+
+// set MODE = PATROLLING {
+//   MODE   = ACTIVE
+//   PATROL = true
+// } 
+
+set MODE = STATION-KEEPING {
+  MODE = ACTIVE
+  TRAIL != true
+  STATION_KEEP = true
+}                       
+
+set MODE = TRAILING {
+  MODE   = ACTIVE
+  TRAIL  = true
+}
+
+
+
+  #include plug_BHV_AvdColregs.bhv
+  #include plug_BHV_OpRegion.bhv
+
+//----LOITER------------------------------------------
+//Behavior = BHV_Loiter
+{
+  name      = loiter
+  pwt       = 100
+  condition = MODE == PATROLLING
+  updates   = UP_LOITER
+
+         speed = 2.5
+     clockwise = false
+        radius = 8.0
+     nm_radius = 15.0
+//       polygon = radial:: x=110, y=-50, radius=20, pts=8, snap=1, label=HUNTER_LOITER
+//       polygon = -50,-55:160,-55:160,-45:-50,-45:label,HUNTER_LOITER
+  polygon = -30,-85:160,-85:160,-75:-30,-75:label,HUNTER_LOITER
+  visual_hints = nextpt_color=white, nextpt_lcolor=khaki
+  visual_hints = edge_color=blue, vertex_color=blue
+  visual_hints = edge_size=1, vertex_size=2
+  }
+//-----TRAIL---------------------------------------------------
+
+Behavior = BHV_Trail
+{
+  // General Behavior Parameters
+  // ---------------------------
+             name         = trail_mokai                // example
+             pwt          = 100                   // default
+             condition    = MODE == TRAILING //TRAIL_ALLOWED = true 
+	   //  runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=Betty Is Following
+//  runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=file=t2_affirmative.wav
+  runflag = NODE_MESSAGE_LOCAL=src_node=evan,dest_node=mokai,var_name=SAY_MOOS,string_val=Arnold Is Following
+  runflag = BOT_DIALOG_STATUS=Following
+             updates      = TRAIL_INFO            // example
+//             templating   = spawn                 // example
+  
+  
+  // General Contact Behavior Parameters
+  // -----------------------------------
+                  contact = mokai        // example
+                    decay = 15,30            // default (seconds)
+              extrapolate = true             // default
+         on_no_contact_ok = true             // default
+              time_on_leg = 60               // default (seconds)
+  
+  
+  // Parameters specific to this behavior
+  // ------------------------------------
+                nm_radius = 1         // default (meters)
+         no_alert_request = false      // default
+  post_trail_dist_on_idle = true       // default
+           pwt_outer_dist = 0          // default (meters)        
+                   radius = 1          // default (meters) 
+              trail_angle = 220        // default (degrees)
+         trail_angle_type = relative   // default (relative or absolute)             
+              trail_range = 8         // default (meters)
+} 
+  
+//------STATION----------------------------------------
+Behavior = BHV_StationKeep
+{
+  name      = station-keep
+  pwt       = 100
+  condition = MODE == STATION-KEEPING
+//  	     runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=Betty Is Stationing
+ // 	     runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=file=t2_no_problemo.wav
+  runflag = NODE_MESSAGE_LOCAL=src_node=evan,dest_node=mokai,var_name=SAY_MOOS,string_val=Arnold Is Stationing
+  runflag = BOT_DIALOG_STATUS=Stationing
+
+     center_activate = true
+        inner_radius = 5
+        outer_radius = 10 
+         outer_speed = 1.0
+
+       transit_speed = 1.3
+          swing_time = 7
+  hibernation_radius = 25
+        visual_hints = vertex_size=0, edge_color=blue
+}
+
+
+//------RETURN----------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = position
+  pwt       = 100
+  updates   = POSITION_UPDATES
+  condition = MODE == PATROLLING
+  
+  endflag   = STATION_KEEP = true
+
+      speed = 3.0
+     radius = 3.0
+  nm_radius = 15.0
+     points = 10,-40
+     repeat = 0
+       lead = 8
+}
+
+//------RETURN----------------------------------------
+Behavior = BHV_Waypoint
+{
+  name      = waypt_return
+  pwt       = 100
+  updates   = RETURN_UPDATES
+  condition = MODE == RETURNING
+//  runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=Betty Is Returning
+//  runflag = NODE_MESSAGE_LOCAL=src_node=betty,dest_node=mokai,var_name=SAY_MOOS,string_val=file=t1_be_back.wav
+  runflag = NODE_MESSAGE_LOCAL=src_node=evan,dest_node=mokai,var_name=SAY_MOOS,string_val=Arnold Is Returning
+  runflag = BOT_DIALOG_STATUS=Returning
+
+  endflag   = STATION_KEEP = true
+
+      speed = 3.0
+     radius = 3.0
+  nm_radius = 15.0
+     points = $(RETURN_POS)
+     repeat = 10
+       lead = 8
+}
+  
+//----------------------------------------------
+//Behavior = BHV_Trail
+{
+  name       = trail_contact
+  pwt        = 100
+  condition  = (MODE == TRAILING) or (MODE == PATROLLING)
+  condition  = TRAILING_ALLOWED = true  
+  runflag    = TRAIL = true
+  idleflag   = TRAIL = false
+  updates    = TRAIL_INFO
+  templating = spawn
+
+              contact = mokai
+       pwt_outer_dist = 325
+            nm_radius = 18
+               radius = 8
+          trail_angle = $(TRAIL_ANGLE)
+          trail_range = $(TRAIL_RANGE)
+
+     trail_angle_type = relative
+     on_no_contact_ok = true
+          extrapolate = true
+                decay = 30,60
+  bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  //-----SHADOW---------------------------------------------------
+//Behavior = BHV_Shadow
+{
+   // General Behavior Parameters
+   // ---------------------------
+   name         = shadow_          // example
+   pwt          = 50                   // example
+  condition  = (MODE == TRAILING) or (MODE == PATROLLING)
+  condition  = TRAILING_ALLOWED = true
+  runflag    = TRAIL = true
+  idleflag   = TRAIL = false
+  updates    = TRAIL_INFO
+  templating = spawn
+
+// General Contact Behavior Parameters
+   // -----------------------------------
+             contact = jackal            // example
+               decay = 15,30            // default (seconds)
+         extrapolate = true             // default
+    on_no_contact_ok = true             // default
+         time_on_leg = 60               // default (seconds)
+
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+         pwt_outer_dist = 0             // default (meters)
+      heading_peakwidth = 270            // default 
+      heading_basewidth = 275           // default 
+        speed_peakwidth = 0.1           // default 
+        speed_basewidth = 4.0           // default 
+ }
+//-----CUT RANGE---------------------------------------------------
+//Behavior = BHV_CutRange
+ {
+  // General Behavior Parameters
+   // ---------------------------
+   name         = cutrange_          // example
+   pwt          = 100                   // example
+  condition  = (MODE == TRAILING) or (MODE == PATROLLING)
+  condition  = TRAILING_ALLOWED = true
+  runflag    = TRAIL = true
+  idleflag   = TRAIL = false
+  updates    = TRAIL_INFO
+  templating = spawn
+
+   // General Contact Behavior Parameters
+   // -----------------------------------
+       bearing_lines = white:0, green:0.65, yellow:0.8, red:1.0   // example
+
+             contact = jackal            // example
+               decay = 15,30            // default (seconds)
+         extrapolate = true             // default
+    on_no_contact_ok = true             // default
+         time_on_leg = 60               // default (seconds)
+
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+         giveup_dist = 100                // default (meters)
+            patience = 50                // default [0,100]
+      pwt_inner_dist = 30               // default [0,inf]
+      pwt_outer_dist = 80              // default [0,inf]
+ }

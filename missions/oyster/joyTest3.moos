@@ -1,0 +1,57 @@
+ServerHost = localhost
+ServerPort = 9000
+Community  = joytest
+
+MOOSTimeWarp = 1
+
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+  Run = MOOSDB        @ NewConsole = false
+  Run = iJoystick     @ NewConsole = false
+  Run = pOysterRC     @ NewConsole = false
+  Run = pOysterMUX    @ NewConsole = false
+  Run = pOysterESC    @ NewConsole = false
+}
+
+ProcessConfig = iJoystick
+{
+  AppTick       = 20
+  CommsTick     = 20
+  Output_Prefix = JOY0
+  Dependent     = 0,1
+  ID_By_Button	= 3
+}
+
+
+ProcessConfig = pOysterRC
+{
+  AppTick       = 10
+  CommsTick     = 10
+  RANGE = in_msg=JOY0_AXIS_0, in_min=-32768, in_max=32767, dead=10, sat=40, out_msg=X_DIR, out_min=-40, out_max=40
+  RANGE = in_msg=JOY0_AXIS_1, in_min=-32768, in_max=32767, dead=10, sat=40, norm_min=-1.0, norm_max=0, out_msg=Y_DIR, out_min=100, out_max=5
+  TRIGGER = in_msg=JOY0_BUTTON_0, trigger=DOWN, out_msg=RC_FLIP, out_val=true
+  TRIGGER = in_msg=JOY0_BUTTON_7, trigger=DOWN, out_msg=SAFETY, out_val=true
+  OUT_MSG = RC_COMMAND
+  DEBUG_MODE = FALSE
+}
+
+
+ProcessConfig = pOysterMUX
+{
+  AppTick       = 10
+  CommsTick     = 10
+  INPUT         = in_msg=RC_COMMAND, priority=0
+  INPUT         = in_msg=AUTO, priority=1
+  OUT           = DESIRED_THRUST
+  REFRESH       = 0.5
+}
+
+ProcessConfig = pOysterESC
+{
+  AppTick   = 100
+  CommsTick = 0.1
+  SerialPort = /dev/ttyACM0
+  SerialBaud = 19200
+  INPUT      = DESIRED_THRUST
+}

@@ -1,0 +1,12 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   Nickname = betty:arnold
+
+}
+

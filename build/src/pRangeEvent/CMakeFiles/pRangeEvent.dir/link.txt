@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -g  -rdynamic CMakeFiles/pRangeEvent.dir/RangeEvent.cpp.o CMakeFiles/pRangeEvent.dir/RangeEvent_Info.cpp.o CMakeFiles/pRangeEvent.dir/main.cpp.o  -o ../../../bin/pRangeEvent  -L/home/oyster/moos-ivp/lib -Wl,-rpath,/home/oyster/moos-ivp/lib /home/oyster/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a -lcontacts -lgeometry -lapputil -lmbutil -pthread -lm 

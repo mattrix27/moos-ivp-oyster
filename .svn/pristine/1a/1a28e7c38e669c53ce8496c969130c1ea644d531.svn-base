@@ -1,0 +1,40 @@
+//------------------------------------------------
+ProcessConfig = uDialogManager
+{
+  AppTick   = 4
+  CommsTick = 4
+
+ //Indicate whether to use local text-to-speech (TTS) or pre-recorded wave files
+ Use_Wav_Files=Yes
+
+  sentence = $(TEAMMATE1)_Deploy : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = DEPLOY,string_val = true" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = MOOS_MANUAL_OVERRIDE,string_val = false"
+  sentence = $(TEAMMATE1)_Return : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = true"
+
+  sentence = $(TEAMMATE1)_Follow    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = TRAIL" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME), dest_node = $(TEAMMATE1), var_name = TRAIL_UPDATES, srting_val = contact = $(VNAME)"
+  sentence = $(TEAMMATE1)_Station   : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = STATION"
+  sentence = $(TEAMMATE1)_Cover     : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = COVER" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME), dest_node = $(TEAMMATE1), var_name = COVER_UPDATES, srting_val = contact = $(VNAME)"
+  sentence = $(TEAMMATE1)_Intercept : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = INTERCEPT"
+  sentence = $(TEAMMATE1)_Defend    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = DEFEND"
+  sentence = $(TEAMMATE1)_Attack    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = ATTACK"
+  sentence = $(TEAMMATE1)_Left    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = ATTACK_LEFT"
+  sentence = $(TEAMMATE1)_Right    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name = ACTION,string_val = ATTACK_RIGHT"
+  sentence = $(TEAMMATE1)_Status    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name=BOT_DIALOG_REQUEST,string_val=STATUS:src=$(VNAME)"
+
+  sentence = $(TEAMMATE2)_Deploy : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = DEPLOY,string_val = true" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = MOOS_MANUAL_OVERRIDE,string_val = false"
+  sentence = $(TEAMMATE2)_Return : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = true"
+
+  sentence = $(TEAMMATE2)_Follow    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = TRAIL" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME), dest_node = $(TEAMMATE2), var_name = TRAIL_UPDATES, srting_val = contact = $(VNAME)"
+  sentence = $(TEAMMATE2)_Station   : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = STATION"
+  sentence = $(TEAMMATE2)_Cover     : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = COVER" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME), dest_node = $(TEAMMATE2), var_name = COVER_UPDATES, srting_val = contact = $(VNAME)"
+  sentence = $(TEAMMATE2)_Intercept : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = INTERCEPT"
+  sentence = $(TEAMMATE2)_Defend    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = DEFEND"
+  sentence = $(TEAMMATE2)_Attack    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = ATTACK"
+  sentence = $(TEAMMATE2)_Left    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = ATTACK_LEFT"
+  sentence = $(TEAMMATE2)_Right    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = RETURN,string_val = false" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name = ACTION,string_val = ATTACK_RIGHT"
+  sentence = $(TEAMMATE2)_Status    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name=BOT_DIALOG_REQUEST,string_val=STATUS:src=$(VNAME)"
+
+  sentence = TEAM_Status    : NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE1),var_name=BOT_DIALOG_REQUEST,string_val=STATUS:src=$(VNAME)" + NODE_MESSAGE_LOCAL = "src_node = $(VNAME),dest_node = $(TEAMMATE2),var_name=BOT_DIALOG_REQUEST,string_val=STATUS:src=$(VNAME)"
+
+  sentence = tag {NOCONFIRM} : TAG_REQUEST       = "vname = $(VNAME)"
+  sentence = grab {NOCONFIRM} : FLAG_GRAB_REQUEST = "vname = $(VNAME)"
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -fPIC -g  -shared -Wl,-soname,libBHV_OpRegionRecover.so -o ../../../lib/libBHV_OpRegionRecover.so CMakeFiles/BHV_OpRegionRecover.dir/BHV_OpRegionRecover.cpp.o  -L/home/oyster/moos-ivp/lib -Wl,-rpath,/home/oyster/moos-ivp/lib -lhelmivp -lbehaviors -livpbuild -llogic -livpcore -lbhvutil -lmbutil -lgeometry -lm 

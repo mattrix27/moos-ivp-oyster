@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -fPIC -g  -shared -Wl,-soname,libBHV_Cover.so -o ../../../lib/libBHV_Cover.so CMakeFiles/BHV_Cover.dir/BHV_Cover.cpp.o CMakeFiles/BHV_Cover.dir/NodeReport.cpp.o  -L/home/oyster/moos-ivp/lib -Wl,-rpath,/home/oyster/moos-ivp/lib -lhelmivp -lbehaviors -livpbuild -llogic -livpcore -lbhvutil -lmbutil -lgeometry -lm 

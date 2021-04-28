@@ -1,0 +1,53 @@
+
+  cmd = label=DEPLOY, var=DEPLOY,  sval=true,  receivers=all:evan:felix:gus
+  cmd = label=DEPLOY, var=MOOS_MANUAL_OVERRIDE, sval=false, receivers=all:evan:felix:gus
+  cmd = label=DEPLOY, var=AVOID,  sval=true,  receivers=all:evan:felix:gus
+  cmd = label=DEPLOY, var=RETURN,  sval=false,  receivers=all:evan:felix:gus
+  cmd = label=DEPLOY, var=STATION_KEEP, sval=false, receivers=all:evan:felix:gus:hal
+
+  cmd = label=RETURN, var=RETURN, sval=true, receivers=all:evan:felix:gus
+  cmd = label=RETURN, var=STATION_KEEP, sval=false, receivers=all:evan:felix:gus:hal
+
+  cmd = label=ATTACK, var=ACTION, sval=attack, receivers=evan:felix:gus:hal
+  cmd = label=ATTACK, var=STATION_KEEP, sval=false, receivers=evan:felix:gus:hal
+  cmd = label=ATTACK, var=GO_GRAB, sval=true, receivers=evan:felix:gus:hal
+
+  cmd = label=DEFEND, var=ACTION, sval=defend, receivers=evan:felix:gus:hal:all
+  cmd = label=DEFEND, var=STATION_KEEP, sval=false, receivers=evan:felix:gus:hal:all
+
+  cmd = label=STATION, var=STATION_KEEP,  sval=true,  receivers=all:evan:felix:gus:hal
+
+  cmd = label=STATION-OFF, var=STATION_KEEP,  sval=false,  receivers=all:evan:felix:gus:hal
+
+  cmd = label=DEFEND-NW, var=ACTION, sval=defend, receivers=evan:felix
+  cmd = label=DEFEND-NW, var=LOITER_UPDATES, sval={polygon=format=ellipse, x=-31, y=-47, degs=115, major=25, minor=8, pts=16}, receivers=evan:felix
+  cmd = label=DEFEND-NW, var=STATION_KEEP, sval=false, receivers=evan:felix
+  cmd = label=DEFEND-NW, var=RETURN, sval=false, receivers=evan:felix
+
+  cmd = label=DEFEND-W, var=ACTION, sval=defend, receivers=evan:felix
+  cmd = label=DEFEND-W, var=LOITER_UPDATES, sval={polygon = format=ellipse, x=-25, y=-62, degs=115, major=55, minor=10, pts=16}, receivers=evan:felix
+  cmd = label=DEFEND-W, var=STATION_KEEP, sval=false, receivers=evan:felix
+  cmd = label=DEFEND-W, var=RETURN, sval=false, receivers=evan:felix
+
+  cmd = label=DEFEND-SW, var=ACTION, sval=defend, receivers=evan:felix
+  cmd = label=DEFEND-SW, var=LOITER_UPDATES, sval={polygon = format=ellipse, x=-19, y=-74, degs=115, major=25, minor=8, pts=16}, receivers=evan:felix
+  cmd = label=DEFEND-SW, var=STATION_KEEP, sval=false, receivers=evan:felix
+  cmd = label=DEFEND-SW, var=RETURN, sval=false, receivers=evan:felix
+	
+
+  cmd = label=DEFEND-NE, var=ACTION, sval=defend, receivers=gus:hal
+  cmd = label=DEFEND-NE, var=LOITER_UPDATES, sval={polygon=format=ellipse, x=18, y=-22, degs=115, major=25, minor=8, pts=16}, receivers=gus:hal
+  cmd = label=DEFEND-NE, var=STATION_KEEP, sval=false, receivers=gus:hal
+  cmd = label=DEFEND-NE, var=RETURN, sval=false, receivers=gus:hal
+
+  cmd = label=DEFEND-E, var=ACTION, sval=defend, receivers=gus:hal
+  cmd = label=DEFEND-E, var=LOITER_UPDATES, sval={polygon = format=ellipse, x=25, y=-37, degs=115, major=55, minor=10, pts=16}, receivers=gus:hal
+  cmd = label=DEFEND-E, var=STATION_KEEP, sval=false, receivers=gus:hal
+  cmd = label=DEFEND-E, var=RETURN, sval=false, receivers=gus:hal
+
+  cmd = label=DEFEND-SE, var=ACTION, sval=defend, receivers=gus:hal
+  cmd = label=DEFEND-SE, var=LOITER_UPDATES, sval={polygon = format=ellipse, x=32, y=-52, degs=115, major=25, minor=8, pts=16}, receivers=gus:hal
+  cmd = label=DEFEND-SE, var=STATION_KEEP, sval=false, receivers=gus:hal
+  cmd = label=DEFEND-SE, var=RETURN, sval=false, receivers=gus:hal
+	
+

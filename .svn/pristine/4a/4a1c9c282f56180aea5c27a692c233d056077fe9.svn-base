@@ -1,0 +1,75 @@
+ServerHost = localhost
+ServerPort = 9000
+Community = alpha
+
+ProcessConfig = ANTLER
+{
+
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = false
+	Run = iButtonBox @NewConsole = false
+	Run = pRecord	@ NewConsole = false ~pRecordSpeechRec 
+	Run = pRecord	@ NewConsole = false ~pRecordToHumans 
+	Run = pLogger @NewConsole = false
+}
+
+ProcessConfig = pRecordToHumans
+{
+   AppTick   = .2
+   CommsTick = 4
+
+   MOOS_VAR_WATCH = TO_HUMANS_REC_BUTTON
+   MOOS_VALUE_WATCH = TRUE
+
+  SAVE_FILE_PREFIX = TO_HUMANS
+  SAVE_DIR_PREFIX = TO_HUMANS_SAVE
+}
+
+ProcessConfig = pRecordSpeechRec
+{
+   AppTick   = .2
+   CommsTick = 4
+
+   MOOS_VAR_WATCH = SPEECH_REC_BUTTON
+   MOOS_VALUE_WATCH = TRUE
+
+  SAVE_FILE_PREFIX = SPEECH_REC
+  SAVE_DIR_PREFIX = SPEECH_REC_SAVE
+}
+
+ProcessConfig = iButtonBox
+{
+	AppTick = 50
+	CommsTick = 50
+
+	PORT = /dev/tty.usbmodem14411 //this adress can change each time an arduino is plugged in
+	BAUDRATE = 9600
+
+	BUTTON_0_NAME = SPEECH_REC_BUTTON
+  BUTTON_1_NAME = TO_HUMANS_REC_BUTTON
+
+}
+
+ProcessConfig = pLogger
+{
+
+	AppTick  = 10
+        CommsTick  = 10
+
+	File = BUTTON_LOG
+	PATH = ./logs/			// change this to any path to log files
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	FileTimeStamp = true
+
+	LogAuxSrc = true
+
+	WildCardLogging = true
+
+	Log = SPEECH_BUTTON @ 0         // add any other buttons for logging
+
+}
+	
+
+

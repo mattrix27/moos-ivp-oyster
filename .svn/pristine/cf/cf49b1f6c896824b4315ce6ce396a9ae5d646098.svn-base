@@ -1,0 +1,13 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   //robot Betty's nickname is Arnold
+   Nickname = betty:arnold
+
+}
+

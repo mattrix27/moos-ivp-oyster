@@ -1,0 +1,30 @@
+//--------------------------------------------------------
+ProcessConfig = pBasicContactMgr
+{
+  AppTick   = 2
+  CommsTick = 2
+
+  decay = 30,60
+  //decay = 2,5  // Don't really want extrapolation here
+
+  alert_verbose = true
+
+  contact_max_age = 3600
+  display_radii   = false
+
+  default_alert_range = 50
+  default_cpa_range   = 35
+  default_alert_range_color = gray70
+  default_cpa_range_color   = gray30
+
+//  alert = id=zone, var=IN_ZONE, val="inside"
+//  alert = id=zone, alert_range=9999
+//  alert = id=zone, cpa_range=9999
+//  alert = id=zone, region=pts={ 56,16 : -15,-17 : 17,-83 : 82,-56}
+//  alert = id=zone, on_flag=SAY_MOOS=say={hello}
+//  alert = id=zone, off_flag=SAY_MOOS=say={bye}
+//  alert = id=zone, on_flag=AGGRESSIVE=true
+//  alert = id=zone, off_flag=AGGRESSIVE=false
+
+//  Alert = id=trail, var=TRAIL_INFO, val="name=$[RNAME] # contact=mokai", alert_range=140
+}

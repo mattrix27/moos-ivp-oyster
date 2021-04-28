@@ -1,0 +1,11 @@
+
+ProcessConfig = iOS5000AC
+{
+  AppTick    = 10
+  CommsTick  = 10
+
+  Port       = /dev/OS5000
+  Baudrate   = 19200
+  Mag_var    = -15
+}
+

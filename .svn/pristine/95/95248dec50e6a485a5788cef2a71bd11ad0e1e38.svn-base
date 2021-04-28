@@ -1,0 +1,26 @@
+// uTimerScript Configuration Block
+
+ProcessConfig = uTS_deploy_timer
+{
+  AppTick   = 4
+  CommsTick = 4
+  
+   paused     = false
+   reset_max  = unlimited
+   reset_time = end
+  forward_var = UTS_DT_FORWARD
+
+  // event = var=DEPLOY_ALL, val="true", time=100
+  // event = var=MOOS_MANUAL_OVERRIDE_ALL, val="false", time=100
+  // event = var=RETURN_ALL, val="false", time=100
+  // event = var=PATROL, val="true", time=100  
+
+  event = var=STATION_KEEP_ALL, val="true", time=100000
+
+  event = var=STATION_KEEP_ALL, val="false", time = 200000
+}
+
+
+
+ 
+

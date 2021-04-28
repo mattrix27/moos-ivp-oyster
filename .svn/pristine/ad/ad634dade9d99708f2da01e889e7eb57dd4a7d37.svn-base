@@ -1,0 +1,50 @@
+
+Hi guys - Let me try to clarify what I'm looking for as a next step. 
+
+I'd like to be able to make new mission configurations (.moos+.bhv) for 
+vehicles playing our game. 
+
+For example, I'd like the ability to configure:
+
+1. an "attack" mode where the autonomous vehicle simply makes a dash 
+to the enemy flag until it gets caught or succeeds. Only evasion of 
+the enemy is collision avoidance.
+
+Can we get the word"attack" added to the vocabulary? e.g. "Davis attack"
+
+2. a "cover" mode where the autonomous vehicle tries to stay between 
+the commanding vehicle and any enemy, hopefully drawing tags so the 
+
+Can we get the word "cover" added to the vocabulary? e.g. "Evan attack"
+
+3. A "hold" mode where the autonomous vehicle stations for prescribed
+set of time before resuming what it was doing. 
+
+Can we get the word "holdN" added to the vocabulary? e.g. "Gus hold20"
+would ask Gus to station for 20 seconds before timing out.
+
+4. A defense mode for our robots such that they will only tag if the 
+enemy has the flag, i.e., they will ignore a vehicle entering the home
+side, but as soon as the enemy has the flag, it will try to cut-range
+and tag.
+
+Can we get the word "notag" added to the vocabulary? e.g. "Evan notag"
+
+As a first step, I'm looking to confirm that we can add the above words
+to our system. 
+
+Q: Where does this happen in configuration? 
+Q: Are there changes
+needed to the code? 
+Q: Do we start to see an increase in "verbal collisions", i.e., words
+mistakenly heard as another word in our vocabulary, as we grow the size 
+of the vocabulary? 
+Q; How robust is achieving the above to the particular
+voices of our team? 
+Q: Can we test with some women in the lab? 
+
+Q: If we do 
+have verbal collisions, can we improve the situation by training? 
+
+Q: Can we improve by choosing
+our words more wisely?

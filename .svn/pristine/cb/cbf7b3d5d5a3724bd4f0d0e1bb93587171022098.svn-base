@@ -1,0 +1,13 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager
+{
+   AppTick   = 4
+   CommsTick = 4
+
+//   Nickname = betty:arnold
+   sentence = tag : TAG_REQUEST = "vname=$(VNAME)"
+   sentence = grab : FLAG_GRAB_REQUEST = "vname=$(VNAME)"
+}
+

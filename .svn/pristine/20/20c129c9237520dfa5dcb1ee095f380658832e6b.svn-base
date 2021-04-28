@@ -1,0 +1,15 @@
+# Steps to deploy code on an arduino
+    - Download the arduino IDE
+    - File > Open > ButtonBox.ino (In this directory)
+    - Edit the "buttonPin" array to contain the pins you will use for your buttons
+    - Connect your arduino
+    - Select the correct type of arduino board (Tools > Board)
+    - Select the port that your arduino is one (Tools > Port)
+    - Click the upload button on the arduino IDE
+
+# Steps to wire the arduino
+    - Find a open DIO pin for each button you wish to wire
+    - Connect one side of each of the buttons to each DIO pin
+    - Connect the other side of ALL buttons to ground.
+
+# When connecting the arduino to a computer, make sure to check /dev and note the full name of the device "tty.usbmodemXXXXX" where X's are stand-ins for arbitrary numbers. Then place the address of this device, so /dev/tty.submodemXXXXX, after "PORT" in the iButtonBox confix block.

@@ -1,0 +1,18 @@
+ProcessConfig = iButtonBox
+{
+	AppTick = 10
+	CommsTick = 10
+
+	PORT = /dev/ButtonBox
+	BAUDRATE = 9600
+	BUTTON_0_UP_POST = var=SPEECH_ACTIVE, sval=FALSE
+  BUTTON_0_DOWN_POST = var=SPEECH_ACTIVE, sval=TRUE
+
+  BUTTON_1_UP_POST = var=TO_HUMANS_REC_BUTTON, sval=FALSE
+  BUTTON_1_DOWN_POST = var=TO_HUMANS_REC_BUTTON, sval=TRUE
+
+  BUTTON_2_DOWN_POST = var=FLAG_GRAB_REQUEST, sval=vname=$(VNAME)
+
+  BUTTON_3_DOWN_POST = var=TAG_REQUEST, sval=vname=$(VNAME)
+}
+

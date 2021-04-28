@@ -1,0 +1,25 @@
+ProcessConfig = uFldZoneEvent
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  // dynamic values ($[VNAME], $[GROUP], $[TIME], $[VX], $[VY])
+  // zone name should correspond to the vehicle's group name to be active
+  zone_info = name=blue_in_own   # pts={-15.50,-8.00 : -86.00,-41.00 : -54.20,-108.93 : 16.30,-75.93}
+  zone_info = name=blue_in_own   # group = blue // mandatory
+  zone_info = name=blue_in_enemy # pts={55.00,25.00 : -15.50,-8.00 : 16.30,-75.93 : 86.80,-42.93 }
+  zone_info = name=blue_in_enemy # group = blue
+  zone_info = name=red_in_own    # pts={55.00,25.00 : -15.50,-8.00 : 16.30,-75.93 : 86.80,-42.93 }
+  zone_info = name=red_in_own    # group = red
+  zone_info = name=red_in_enemy  # pts={-15.50,-8.00 : -86.00,-41.00 : -54.20,-108.93 : 16.30,-75.93}
+  zone_info = name=red_in_enemy  # group = red // mandatory
+#ifdef VTEAM blue
+  zone_info = name=blue_in_own   # post_var = ENEMY_TERRITORY=false
+  zone_info = name=blue_in_enemy # post_var = ENEMY_TERRITORY=true
+  zone_info = name=blue_in_enemy # post_var = LOITER=true
+  zone_info = name=red_in_enemy  # post_var = LOITER=false
+#elseifdef VTEAM red
+  zone_info = name=red_in_own    # post_var = ENEMY_TERRITORY=false
+  zone_info = name=red_in_enemy  # post_var = ENEMY_TERRITORY=true
+#endif
+}

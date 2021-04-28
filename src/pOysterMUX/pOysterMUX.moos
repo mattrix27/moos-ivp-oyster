@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pOysterMUX config block
+
+ProcessConfig = pOysterMUX
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

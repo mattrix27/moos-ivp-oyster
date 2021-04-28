@@ -1,0 +1,17 @@
+//------------------------------------------------
+// pRangeEvent config block
+
+ProcessConfig = uTimerScript                                    
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+
+  condition  = DEPLOY=true
+  condition  = CLOSEST_RANGE < 20
+  event      = var=TAG_REQUEST, val="vname=$[VNAME]", time=1  
+  event      = var=TAG_REQUEST, val="vname=$[VNAME]", time=5  
+  paused     = false 
+
+  //reset_time = all-posted
+  reset_time = none
+}                                              

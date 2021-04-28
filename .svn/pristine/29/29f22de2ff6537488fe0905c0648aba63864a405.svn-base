@@ -1,0 +1,18 @@
+//------------------------------------------------
+// iLEDInfoBar config block
+
+ProcessConfig = iLEDInfoBar
+{
+   AppTick    = 6
+   CommsTick  = 6
+   TEAM_COLOR = blue
+   PORT       = /dev/cu.usbmodem4636831
+   BAUDRATE   = 9600
+
+   // LED vars to register
+   TAGGED        = LED_TAGGED          
+   OUT_OF_BOUNDS = ONFIELD          
+   HAVE_FLAG     = LED_HAVE_FLAG      
+   IN_TAG_RANGE  = CANTAG     
+   IN_FLAG_ZONE  = LED_IN_FLAG_ZONE    
+}        

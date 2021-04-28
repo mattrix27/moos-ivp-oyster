@@ -1,0 +1,13 @@
+//------------------------------------------------
+// iNetNMEAClient config block
+
+ProcessConfig = iNetNMEAClient
+{
+   AppTick   = 4
+   CommsTick = 4
+   server = localhost
+   port = 2000
+   nmea_send = NMEA_TO_SEND
+   nmea_recv = NMEA_RECEIVED
+}
+

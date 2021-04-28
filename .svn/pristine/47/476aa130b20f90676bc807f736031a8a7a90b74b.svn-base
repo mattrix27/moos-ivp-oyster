@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pReliable config block
+
+ProcessConfig = pReliable
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

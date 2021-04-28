@@ -1,0 +1,18 @@
+// Generated with Anaxi Tile Downloader
+lat_north= 41.35722634104607
+lat_south= 41.35207214451294
+lon_east= -74.04922485351562
+lon_west= -74.06295776367188
+
+datum_lat = 41.35499
+datum_lon = -74.0544
+
+
+//tileStartX= 154282
+//tileStartY= 195878
+//tileEndX= 154301
+//tileEndY= 195887
+//zoom= 19
+//numTiles= 200
+//mapFile= Map_19_154282-154301_195878-195887.png
+//cmd= tsdl.py 41.357140 -74.050214 41.352844 -74.062580 19 https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/%zoom%/%yTile%/%xTile%.png

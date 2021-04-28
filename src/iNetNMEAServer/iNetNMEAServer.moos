@@ -1,0 +1,12 @@
+//------------------------------------------------
+// iNetNMEAServer config block
+
+ProcessConfig = iNetNMEAServer
+{
+   AppTick   = 4
+   CommsTick = 4
+   port = 2000
+   nmea_send = NMEA_TO_SEND
+   nmea_recv = NMEA_RECEIVED
+}
+

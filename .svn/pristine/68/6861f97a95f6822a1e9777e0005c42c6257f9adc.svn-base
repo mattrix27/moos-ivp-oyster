@@ -1,0 +1,18 @@
+//------------------------------------------------
+ProcessConfig = uDialogManager
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  //robot Betty's nickname is Arnold
+  //Nickname = betty:arnold
+
+  //list of vars and values to publish given speech sentence
+  //var-value pairs are comma separated
+
+  sentence = Arnold_Follow : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=gus,var_name=TRAIL,string_val=true"
+  sentence = Arnold_Station : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=gus,var_name=TRAIL,string_val=false"
+  sentence = Arnold_Return : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=gus,var_name=RETURN,string_val=true"
+  sentence = tag : TAG_REQUEST = "vname=$(VNAME)"
+  sentence = grab : FLAG_GRAB_REQUEST = "vname=$(VNAME)"
+}

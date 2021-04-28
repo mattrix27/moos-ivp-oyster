@@ -1,0 +1,21 @@
+ProcessConfig = iButtonBox
+{
+	AppTick = 10
+	CommsTick = 10
+
+//this adress can change each time an arduino is plugged in
+	PORT = /dev/ttyACM1
+//  PORT = /dev/tty.usbmodemFA131
+	BAUDRATE = 9600
+
+	BUTTON_0_UP_POST = var=SPEECH_ACTIVE, sval=FALSE
+    BUTTON_0_DOWN_POST = var=SPEECH_ACTIVE, sval=TRUE
+    
+    BUTTON_1_UP_POST = var=BUTTON_VOIP, sval=FALSE
+    BUTTON_1_DOWN_POST = var=BUTTON_VOIP, sval=TRUE
+
+    BUTTON_2_DOWN_POST = var=FLAG_GRAB_REQUEST, sval=vname=$(VNAME)
+
+    BUTTON_3_DOWN_POST = var=TAG_REQUEST, sval=vname=$(VNAME)
+}
+

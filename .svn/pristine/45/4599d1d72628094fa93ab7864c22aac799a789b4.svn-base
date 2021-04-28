@@ -1,0 +1,10 @@
+To run this mission, make sure that that moos-ivp is properly
+configured on your system. Ensure the following directories are
+in your PATH:
+
+    moos-ivp-mokai/lib/
+    moos-ivp-mokai/bin/
+
+The mission can be launched as following:
+    pAntler mokai.moos
+

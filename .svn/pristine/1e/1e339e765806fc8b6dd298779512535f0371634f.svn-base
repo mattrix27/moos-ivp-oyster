@@ -1,0 +1,53 @@
+// uTimerScript Configuration Block
+
+ProcessConfig = uTimerScript
+{
+  AppTick   = 4
+  CommsTick = 4
+  
+  paused     = false
+  reset_max  = unlimited
+  reset_time = end
+
+  randvar = varname=X1, min=-51,  max=-50, key=at_reset
+  randvar = varname=Y1, min=-160, max=-60, key=at_reset
+  randvar = varname=X2, min=160,  max=161, key=at_reset
+  randvar = varname=Y2, min=-160,  max=-60, key=at_reset
+
+  // randvar = varname=X1, min=-25,  max=25,  key=at_reset
+  // randvar = varname=Y1, min=-100, max=-50, key=at_reset
+  // randvar = varname=X2, min=100,  max=150, key=at_reset
+  // randvar = varname=Y2, min=-75,  max=-25, key=at_reset
+
+  event = var=UP_LOITER_2, val="center_assign=$[X1],$[Y1]", time=180 
+  event = var=UP_LOITER_1, val="center_assign=$[X2],$[Y2]", time=180
+  event = var=UP_TRANSIT_2, val="points = $[X1],$[Y1]", time=180 
+  event = var=UP_TRANSIT_1, val="points = $[X2],$[Y2]", time=180
+
+  event = var=UP_LOITER_1, val="center_assign=$[X1],$[Y1]", time=360
+  event = var=UP_LOITER_2, val="center_assign=$[X2],$[Y2]", time=360
+  event = var=UP_TRANSIT_1, val="points = $[X1],$[Y1]", time=360
+  event = var=UP_TRANSIT_2, val="points = $[X2],$[Y2]", time=360
+}
+
+// //--------------------------------------------------------
+// // uTimerScript Configuration Block
+
+// ProcessConfig = uTimerScript
+// {
+//   AppTick   = 4
+//   CommsTick = 4
+  
+//   PAUSED     = false
+//   RESET_MAX  = unlimited
+//   RESET_TIME = 100
+
+//   RANDVAR = varname=S, min=0.5,  max=5, key=at_reset
+  
+// //  EVENT = var=NODE_MESSAGE_LOCAL, val="src_node=jackal,dest_node=all,var_name=JACKAL_UPDATES,string_val=speed=$[S]", time=0:5 
+//   EVENT = var=JACKAL_UPDATES, val="speed=$[S]", time=0:5 
+// }
+
+
+ 
+

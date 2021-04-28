@@ -1,0 +1,275 @@
+//*******************************************************
+// ShoreSide Configuration File
+
+ServerHost = localhost
+ServerPort = $(SPORT)
+Community  = $(SNAME)
+
+#include plug_origin_warp.moos
+
+//--------------------------------------------------------
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pMarineViewer   @ NewConsole = false
+  Run = pLogger         @ NewConsole = false
+  Run = uProcessWatch   @ NewConsole = false
+  Run = pShare          @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldShoreBroker @ NewConsole = false
+  Run = uFldNodeComms   @ NewConsole = false
+	Run = uFldFlagManager @ NewConsole = false
+	Run = uFldTagManager  @ NewConsole = false
+
+  Run = uFldZoneEvent   @ NewConsole = false ~ UFZEred
+  Run = uFldZoneEvent   @ NewConsole = false ~ UFZEblue
+}
+
+//------------------------------------------------
+// uFldZoneEvent config block
+
+ProcessConfig = UFZEred
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  zone = pts={71.84,-13.20:69.93,-7.32:64.93,-3.69:58.75,-3.69:53.75,-7.32:51.84,-13.20:53.75,-19.08:58.75,-22.71:64.93,-22.71:69.93,-19.08}
+
+  // dynamic values ($[VNAME], $[GROUP], $[TIME], $[VX], $[VY])
+  post_var = UNTAG_REQUEST=vname=$[VNAME]
+  post_var = DBG_UFZE_GROUP=group=$[GROUP]
+  post_var = DBG_UFZE_POS_X=vx=$[VX]
+  post_var = DBG_UFZE_POS_Y=vy=$[VY]
+  post_var = DBG_UFZE_POS=vx=$[VX],vy=$[VY]
+  post_var = DBG_UFZE_TIME=time=$[TIME]
+  post_var = DBG_IN_ZONE=$[TIME]
+  post_var = DBG_ZONE_PING = red
+
+  // zone_name should correspond tp the vehicle's group name
+  zone_name = red
+}
+
+ProcessConfig = UFZEblue
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  zone = pts={-51.05,-70.72:-52.96,-64.84:-57.96,-61.21:-64.14,-61.21:-69.14,-64.84:-71.05,-70.72:-69.14,-76.60:-64.14,-80.23:-57.96,-80.23:-52.96,-76.60}
+
+  // dynamic values ($[VNAME], $[GROUP], $[TIME], $[VX], $[VY])
+  post_var = UNTAG_REQUEST=vname=$[VNAME]
+  post_var = DBG_IN_ZONE=$[TIME]
+  post_var = DBG_ZONE_PING=blue
+
+  // zone_name should correspond tp the vehicle's group name
+  zone_name = blue
+}
+
+#include plug_pShare.moos
+
+//--------------------------------------------------
+// uFldFlagMgr Configuration Block
+
+ProcessConfig = uFldFlagManager
+{
+  AppTick       = 2
+  CommsTick     = 2
+
+  flag = x=61.84, y=-13.2,  label=red
+  flag = x=-61.05, y=-70.72, label=blue
+}
+
+//--------------------------------------------------
+// uFldTagManager Configuration Block
+
+ProcessConfig = uFldTagManager
+{
+//  AppTick    = 2
+//  CommsTick  = 2
+
+//  vtag_range = 30
+//	post_color = white
+//	miss_color = blue
+//	hit_color  = red
+
+//        tag_circle = true
+//	tag_circle_range = 5
+//	tag_circle_color = "green"
+//	tag_min_interval = 2
+
+//	team_one   = $(VTEAM1)
+//	team_two   = $(VTEAM2)
+//	zone_one   = pts={0,-20:120,-20:120,-100:0,-100}
+//	zone_two   = pts={0,-100:120,-100:120,-180:0,-180}
+
+  AppTick   = 4
+  CommsTick = 4
+
+  tag_range = 50     // default (meters)
+
+  post_color = white  // default
+  miss_color = blue   // default
+  hit_color  = red    // default
+
+	tag_circle = true
+	tag_circle_range = 5
+	tag_circle_color = "green"
+	tag_min_interval = 10
+
+  tag_duration = 10000
+
+	tag_post   = MOOS_MANUAL_OVERRIDE_$UP_TARGET=true
+	tag_post   = SAY_MOOS=file=sounds/tennis_grunt.wav
+
+	untag_post = MOOS_MANUAL_OVERRIDE_$UP_TARGET=false
+	untag_post = SAY_MOOS=file=sounds/shipbell.wav
+
+  team_one = red
+  team_two = blue
+
+  zone_one = pts={ 55.00 , 25.00 : -15.50 , -8.00 : 16.30 , -75.93 : 86.80 , -42.93 }
+  // {0,-20:120,-20:120,-100:0,-100}
+  zone_two = pts={ -15.50 , -8.00 : -86.00 , -41.00 : -54.20 , -108.93 : 16.30 , -75.93 }
+  // {0,-100:120,-100:120,-180:0,-180}
+
+	zone_one_color = pink
+	zone_two_color = dodger_blue
+}
+
+//--------------------------------------------------
+// ufldnodecomms Configuration Block
+
+ProcessConfig = uFldNodeComms
+{
+  AppTick       = 2
+  CommsTick     = 2
+
+  comms_range      = 5000
+  critical_range   = 25
+
+  min_msg_interval = 15
+  max_msg_length   = 1000
+  groups           = false
+
+  view_node_rpt_pulses = false
+}
+
+
+//--------------------------------------------------
+// uFldShoreBroker Configuration Block
+
+ProcessConfig = uFldShoreBroker
+{
+  AppTick       = 1
+  CommsTick     = 1
+
+  // Note: [QBRIDGE = FOO]  is shorthand for
+  //       [BRIDGE = src=FOO_$V,  alias=FOO] and
+  //       [BRIDGE = src=FOO_ALL, alias=FOO]
+
+  qbridge  = DEPLOY, RETURN, STATION_KEEP, NODE_REPORT, NODE_MESSAGE
+  qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ, AVOID, CHASE
+
+  bridge   = src=UP_LOITER_$N, alias=UP_LOITER
+  bridge   = src=HELM_MAP_CLEAR, alias=HELM_MAP_CLEAR
+  bridge   = src=FLAG_SUMMARY
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block from plugin
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 1
+  CommsTick = 1
+}
+
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+
+  File          = LOG_SHORESIDE
+  PATH          = ./
+  SyncLog       = true @ 0.2
+  AsyncLog      = true
+  FileTimeStamp = true
+
+	LogAuxSrc     = true
+
+  // Log it all!!!!!
+  WildCardLogging = true
+  WildCardOmitPattern = *_STATUS
+  WildCardOmitPattern = DB_VARSUMMARY
+  WildCardOmitPattern = DB_RWSUMMARY
+}
+
+
+//--------------------------------------------------------
+ProcessConfig = pMarineViewer
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  //TIFF_FILE            = forrest19.tif
+  TIFF_FILE            = MIT_SP.tif
+  set_pan_x            = 129
+  set_pan_y            = -364
+  zoom                 = 2.5
+  vehicles_shape_scale = 1.5
+  vehicles_name_mode   = names
+
+  circle_viewable_all = true
+
+  appcast_viewable = true
+  appcast_color_scheme = indigo
+
+  scope = FLAG_GRAB_REPORT
+  scope = NODE_BROKER_PING
+  scope = DEPLOY_ALL
+
+  action = STATION_KEEP_ALL = false
+  action = STATION_KEEP_ALL = true
+  action = CHASE_ALL = false
+
+  button_one   = DEPLOY  # DEPLOY_ALL=true
+  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false
+  button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
+
+  button_two   = RETURN  # RETURN_ALL=true
+  button_two   = RETURN  # STATION_KEEP_ALL=false
+  button_three = CHASE   # CHASE_ALL=true
+  button_four  = STATION   # STATION_KEEP_ALL=true
+
+  // op_vertex = x=0,   y=-20,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  // op_vertex = x=120, y=-20,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  // op_vertex = x=120, y=-180, lwidth=1,lcolor=yellow,looped=true,group=moa
+  // op_vertex = x=0,   y=-180, lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=55.0,   y=25,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=-86, y=-41,  lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=-54.2, y=-108.93, lwidth=1,lcolor=yellow,looped=true,group=moa
+  op_vertex = x=86,   y=-42.93, lwidth=1,lcolor=yellow,looped=true,group=moa
+}
+
+//--------------------------------------------------------
+// uProcessWatch Configuration Block
+
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  allow_retractions = true
+
+  watch_all = true      // default is true
+
+  nowatch = uXMS*
+  nowatch = uPokeDB*
+
+  summary_wait = 12
+}

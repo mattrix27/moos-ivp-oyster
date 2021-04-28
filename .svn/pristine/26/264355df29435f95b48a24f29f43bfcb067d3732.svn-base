@@ -1,0 +1,19 @@
+// uTimerScript Configuration Block
+
+ProcessConfig = UTS_heartbeat
+{
+  AppTick   = 4
+  CommsTick = 4
+  
+   paused     = false
+   reset_max  = unlimited
+   reset_time = end
+   forward_var = UTS_HEARTBEAT_FORWARD
+
+  event = var=HEARTBEAT_ALL, val="alive", time=5
+}
+
+
+
+ 
+

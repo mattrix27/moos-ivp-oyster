@@ -1,0 +1,18 @@
+Using iJoystick on Mac OS X:
+
+For all joysticks:
+  $ sudo port install libsdl2
+
+In addition, if using a Microsoft XBox 360 controller on OS X:
+  Launch the attached .dmg and follow its instructions
+  Reboot the Mac
+
+The .dmg file is in the moos-ivp-aquaticus/data/ directory.
+
+If you are using an NVIDIA Jetson TX1 (presumably in a Mokai),
+you will need to install libsdl2-dev as well:
+
+  $ sudo apt-get install libsdl2-dev
+
+Note that the package libsdl2 works as well, but is not available
+through the Jetson's default repositories.

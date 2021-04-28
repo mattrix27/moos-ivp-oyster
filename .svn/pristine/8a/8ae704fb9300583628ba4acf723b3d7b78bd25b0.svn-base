@@ -1,0 +1,19 @@
+//------------------------------------------------
+// iZephyrHRM config block
+
+ProcessConfig = iZephyrHRM
+{
+   AppTick   = 4
+   CommsTick = 4
+
+#ifdef HRM_DEVICE 1
+   //HRM 1
+   MAC=A0:E6:F8:48:3A:6C 
+   Channel=1
+#elseifdef HRM_DEVICE 2
+   //HRM 2
+   MAC=A0:E6:F8:FA:9A:9D 
+   Channel=1
+#endif
+}
+

@@ -1,0 +1,12 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   sentence = Betty_Deploy : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=DEPLOY,string_val=true"
+   sentence = Betty_Follow : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=true"
+}
+

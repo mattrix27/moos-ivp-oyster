@@ -1,0 +1,226 @@
+//--------    FILE: alpha.bhv   -------------
+
+initialize   DEPLOY = false
+initialize   RETURNING = false
+initialize   OUTBOUND = true
+initialize   TURNING = false
+initialize   LEFTHAND = $(INITIALLY_LEFTHAND)
+
+// A racetrack, which switches sides after each loop
+// publish "endflag=LEFTHAND=true/false" to the MOOSDB during the outbound leg
+// to change the side of the return leg
+
+//----------------------------------------------
+// Outbound straightaway
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = hold_heading_out
+  pwt = 100
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = OUTBOUND = true
+  condition = TURNING = false
+  activeflag = CONST_SPD_RESET=true
+
+  activeflag = RETURN_DURATION_RESET = true
+  duration_reset = OUT_DURATION_RESET = true
+  perpetual = true
+
+  updates = TURN_BIAS
+
+  endflag = TURNING = true
+
+  // ConstantHeading specific
+  //-------------------------
+
+  duration = $(DUR) // seconds
+  heading_mismatch_var = HDG_DIFF_OUT
+
+  heading = $(START_A)
+}
+
+//----------------------------------------------
+// Inbound straightaway
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = hold_heading_back
+  pwt = 100
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = OUTBOUND = false
+  condition = TURNING = false
+  activeflag = CONST_SPD_RESET=true
+
+  activeflag = OUT_DURATION_RESET = true
+  duration_reset = RETURN_DURATION_RESET = true
+  perpetual = true
+
+  endflag = TURNING = true
+
+  // ConstantHeading specific
+  //-------------------------
+
+  duration = $(DUR) // seconds
+  heading_mismatch_var = HDG_DIFF_BACK
+
+  heading = $(RETURN_A)
+}
+
+//----------------------------------------------
+// Far turn, return leg is right of outward leg
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = turn_far_right
+  pwt = 100
+
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = TURNING = true
+  condition = OUTBOUND = true
+  condition = LEFTHAND = false
+
+  activeflag = CONST_SPD_RESET=true
+
+  endflag = TURNING = false
+  endflag = OUTBOUND = false
+
+  perpetual = true
+
+  // ConstantHeading specific
+  //-------------------------
+  heading = $(RH_FT_A)
+
+  // complete when 60 degrees turn achieved
+  duration = no-time-limit
+  complete_thresh = 5 // degrees?
+}
+
+//----------------------------------------------
+// Far turn, return leg is left of outward leg
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = turn_far_left
+  pwt = 100
+
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = TURNING = true
+  condition = OUTBOUND = true
+  condition = LEFTHAND = true
+
+  activeflag = CONST_SPD_RESET=true
+
+  endflag = TURNING = false
+  endflag = OUTBOUND = false
+
+  perpetual = true
+
+  // ConstantHeading specific
+  //-------------------------
+  heading = $(LH_FT_A)
+
+  // complete when 60 degrees turn achieved
+  duration = no-time-limit
+  complete_thresh = 5 // degrees?
+}
+
+//----------------------------------------------
+// Near turn, return leg is right of outward leg
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = turn_near_right
+  pwt = 100
+
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = TURNING = true
+  condition = OUTBOUND = false
+  condition = LEFTHAND = false
+
+  activeflag = CONST_SPD_RESET=true
+
+  endflag = TURNING = false
+  endflag = OUTBOUND = true
+  endflag = LEFTHAND = true
+
+  perpetual = true
+
+  // ConstantHeading specific
+  //-------------------------
+  heading = $(RH_NT_A)
+
+  // complete when 60 degrees turn achieved
+  duration = no-time-limit
+  complete_thresh = 5 // degrees?
+}
+
+//----------------------------------------------
+// Near turn, return leg is left of outward leg
+//----------------------------------------------
+Behavior = BHV_ConstantHeading
+{
+  // General Behavior
+  //-------------------------
+
+  name = turn_near_left
+  pwt = 100
+
+  condition = RETURNING = false
+  condition = DEPLOY = true
+  condition = TURNING = true
+  condition = OUTBOUND = false
+  condition = LEFTHAND = true
+
+  activeflag = CONST_SPD_RESET=true
+
+  endflag = TURNING = false
+  endflag = OUTBOUND = true
+  endflag = LEFTHAND = false
+
+  perpetual = true
+
+  // ConstantHeading specific
+  //-------------------------
+  heading = $(LH_NT_A)
+
+  // complete when 60 degrees turn achieved
+  duration = no-time-limit
+  complete_thresh = 5 // degrees?
+}
+
+//----------------------------------------------
+Behavior=BHV_ConstantSpeed
+{
+  name       = const_speed
+  pwt        = 200
+  condition  = DEPLOY = true
+  perpetual  = true
+  updates    = SPEED_UPDATE
+  endflag    = SPD = false
+
+     speed = 2.0
+		 duration = 10
+		 duration_reset = CONST_SPD_RESET=true
+
+}
+

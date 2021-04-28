@@ -1,0 +1,9 @@
+ProcessConfig = iWebCam
+{
+   AppTick   = 30
+   CommsTick = 4
+
+   ImageWidth = 640
+   ImageHeight = 480
+}
+

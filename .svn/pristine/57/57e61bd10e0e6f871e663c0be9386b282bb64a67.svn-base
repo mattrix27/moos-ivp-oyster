@@ -1,0 +1,26 @@
+
+//--------COLREGS--------------------------------------
+//Behavior = BHV_AvdColregs
+{
+  name       = avdcol_
+  pwt        = 300
+  condition  = MODE==ACTIVE
+  condition  = AVOID_TYPE = colregs
+  condition  = STATION_KEEP = false
+  updates    = CONTACT_INFO
+  endflag    = CONTACT_RESOLVED = $[CONTACT]
+  templating = spawn
+  
+           contact = to-be-set
+  on_no_contact_ok = true
+       extrapolate = true
+             decay = 30,60
+  
+     pwt_outer_dist = 30
+     pwt_inner_dist = 15
+     completed_dist = 40
+  min_util_cpa_dist = 8
+  max_util_cpa_dist = 16
+
+//   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}

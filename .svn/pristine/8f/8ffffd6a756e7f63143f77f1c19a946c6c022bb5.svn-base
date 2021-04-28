@@ -1,0 +1,95 @@
+//uTimerScript script for group 2 round 3
+
+ProcessConfig = uTimerScript                                    
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+                                                                
+ // Logic condition that must be met for script to be unpaused 
+ condition = AQUATICUS_GAME_ALL=play                            
+ // Event(s) are the key components of the script
+
+//establish group #
+  event = var=GROUP, val=2, time = 0
+//establish round #
+  event = var = ROUND, val=3, time = 0
+//establish High or Low autonomy
+  event = var = SELF_AUTHORIZE_BLUE_TWO, val="FALSE"
+//establish that out autonomous teammate is realiable at the start
+  event = var=RELIABLE_BLUE_TWO, val="TRUE"
+
+
+//Trial 1: H3
+  event          = var=SCENARIO, val="H3", time=0
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=0
+  event          = var=ACTION_RED_ONE, val="PROTECT", time=0
+  event          = var=AGGRESSIVE_RED_ONE, val="false", time=0
+  event          = var=ACTION_RED_TWO, val="DEFEND", time=0
+
+
+//Trial 2: E3
+  event          = var=SCENARIO, val="E3", time=60
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=60
+  event          = var=ACTION_RED_ONE, val="STATION_MIDFIELD", time=60
+  event          = var=ACTION_RED_TWO, val="DEFEND", time=60
+
+
+//Trial 3: H4
+  event          = var=SCENARIO, val="H4", time=120
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=120
+  event          = var=ACTION_RED_ONE, val="PROTECT", time=120
+  event          = var=AGGRESSIVE_RED_ONE, val="false", time=120
+  event          = var=ACTION_RED_TWO, val="STATION_MIDFIELD", time=120
+
+
+//Trial 4: H5 fail
+  event          = var=SCENARIO, val="H5", time=180
+  event          = var=RELIABLE_BLUE_TWO, val="FALSE", time=180
+  event          = var=ACTION_RED_ONE, val="ATTACK_LEFT", time=180
+  event          = var=ACTION_RED_TWO, val="ATTACK_RIGHT", time=180
+
+
+//Trial 5: E4 fail
+  event          = var=SCENARIO, val="E4", time=240
+  event          = var=RELIABLE_BLUE_TWO, val="FALSE", time=240
+  event          = var=ACTION_RED_ONE, val="STATION_MIDLEFT", time=240
+  event          = var=ACTION_RED_TWO, val="STATION_MIDRIGHT", time=240
+
+
+//Trial 6: E2
+  event          = var=SCENARIO, val="E2", time=300
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=300
+  event          = var=ACTION_RED_ONE, val="ATTACK", time=300
+  event          = var=ACTION_RED_TWO, val="DEFEND", time=300
+
+
+//Trial 7: H1
+  event          = var=SCENARIO, val="H1", time=360
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=360
+  event          = var=ACTION_RED_ONE, val="ATTACK_LEFT", time=360
+  event          = var=ACTION_RED_TWO, val="ATTACK", time=360
+
+
+//Trial 8: E1
+  event          = var=SCENARIO, val="E1", time=420
+  event          = var=RELIABLE_BLUE_TWO, val="TRUE", time=420
+  event          = var=ACTION_RED_ONE, val="DEFEND", time=420
+  event          = var=ACTION_RED_TWO, val="DEFEND", time=420
+
+
+//Trial 9: H2 fail
+  event          = var=SCENARIO, val="H2", time=480
+  event          = var=RELIABLE_BLUE_TWO, val="FALSE", time=480
+  event          = var=ACTION_RED_ONE, val="PROTECT", time=480
+  event          = var=ACTION_RED_TWO, val="PROTECT", time=480
+  event          = var=AGGRESSIVE_RED_ONE, val="false", time=480
+  event          = var=AGGRESSIVE_RED_TWO, val="false", time=480
+
+
+//Trial 10: E5 fail
+  event          = var=SCENARIO, val="E5", time=540
+  event          = var=RELIABLE_BLUE_TWO, val="FALSE", time=540
+  event          = var=ACTION_RED_ONE, val="STATION_CLOSE", time=540
+  event          = var=ACTION_RED_TWO, val="STATION_CLOSE", time=540
+
+}

@@ -1,0 +1,71 @@
+ServerHost = localhost
+ServerPort = 9000
+Community = alpha
+
+ProcessConfig = ANTLER
+{
+
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	 @ NewConsole = false
+	Run = pRecord	 @ NewConsole = false
+//        Run = pRecord	 @ NewConsole = false
+	Run = iButtonBox @NewConsole = false
+	Run = pLogger    @NewConsole = false
+	Run = pEchoVar   @NewConsole = false
+	Run = uSpeechRec @NewConsole = false
+}
+
+ProcessConfig = pRecord
+{
+   AppTick   = .2
+   CommsTick = 4
+
+}
+
+ProcessConfig = iButtonBox
+{
+	AppTick = 50
+	CommsTick = 50
+
+	//PORT = /dev/tty.usbmodem14411 //this adress can change each time an arduino is plugged in
+	PORT = /dev/tty.usbmodemFA131 //this adress can change each time an arduino is plugged in
+	BAUDRATE = 9600
+
+	BUTTON_0_NAME = SPEECH_BUTTON
+}
+
+ProcessConfig = pLogger
+{
+
+	AppTick  = 10
+        CommsTick  = 10
+
+	File = BUTTON_LOG
+	PATH = ./logs/			// change this to any path to log files
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	FileTimeStamp = true
+
+	LogAuxSrc = true
+
+	WildCardLogging = true
+
+	Log = SPEECH_BUTTON @ 0         // add any other buttons for logging
+
+}
+	
+ProcessConfig = pEchoVar
+{
+	echo = SPEECH_BUTTON !-> SPEECH_PAUSE
+}
+
+ProcessConfig = uSpeechRec
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  JuliusConf = Alpha.jconf
+
+  StartState = Paused
+}

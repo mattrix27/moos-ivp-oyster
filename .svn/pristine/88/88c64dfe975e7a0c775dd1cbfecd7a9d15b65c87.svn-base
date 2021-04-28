@@ -1,0 +1,94 @@
+// Programmer: Caileigh Fitzgerald
+/*
+udev unix tool?
+*/
+
+ServerHost = localhost
+ServerPort = 9000
+Simulator  = true
+
+Community  = iLEDInfoBar
+
+MOOSTimeWarp = 1
+
+//------------------------------------------
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  #MSBetweenLaunches = 200
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB    		     @ NewConsole = false
+  //Run = uTimerScript	     @ NewConsole = false
+  Run = iLEDInfoBar		     @ NewConsole = false
+ // Run = iLEDInterpreter		 @ NewConsole = false
+  //Run = pLogger 		     @ NewConsole = false
+}
+
+//------------------------------------------------
+// iLEDInfoBar config block
+
+ProcessConfig = iLEDInfoBar
+{
+   AppTick    = 4
+   CommsTick  = 4
+   TEAM_COLOR = blue
+   PORT	  	  = /dev/cu.usbmodem4299101
+   BAUDRATE   = 9600
+
+   // LED vars to register
+   TAGGED			= TAGGED				
+   OUT_OF_BOUNDS	= OUT_OF_BOUNDS			
+   HAVE_FLAG		= HAVE_FLAG		
+   IN_TAG_RANGE		= IN_TAG_RANGE		
+   IN_FLAG_ZONE		= IN_FLAG_ZONE		
+}				
+
+//------------------------------------------------------------------
+// pLogger configuration block
+ ProcessConfig = pLogger
+ {
+   AsyncLog = true
+   WildCardLogging = true
+   WildCardOmitPattern = *_STATUS
+
+   //LOG =  VAR @ 0
+ }
+
+//------------------------------------------------------------------
+// uTimerScript configuration block
+ ProcessConfig = uTimerScript
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  paused     = false
+  event      = var=IN_FLAG_ZONE, val=blinking, time=0.75
+  event      = var=TAGGED, 	  	 val=true, time=0.99
+  event      = var=TAGGED, 		 val=false, time=1.00
+  event      = var=IN_FLAG_ZONE, val=blinking, time=1.02
+  event      = var=HAVE_FLAG, 	 val=blinking, time=1.05
+  event      = var=OUT_OF_BOUNDS, 	 val=true, time=1.20
+  event      = var=HAVE_FLAG, 	 val=false, time=1.21
+  event      = var=TAGGED, 	 val=true, time=1.20
+  reset_max  = 10
+  reset_time = all-posted
+}
+
+//------------------------------------------------
+// iLEDInterpreter config block
+
+ProcessConfig = iLEDInterpreter
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   // LED vars to register
+   // the values need to be changed to the correct var names from uFldxxManager
+   TAGGED			= TAGGED // mikes var is named tag and has true as value				
+   OUT_OF_BOUNDS	= iOUT_OF_BOUNDS			
+   HAVE_FLAG		= HAS_FLAG		
+   IN_TAG_RANGE		= iIN_TAG_RANGE	// needs modifications to mission file	
+   IN_FLAG_ZONE		= iIN_FLAG_ZONE//near_post // this will be a string to parse need to modify mission
+}
+

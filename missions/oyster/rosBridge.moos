@@ -1,0 +1,45 @@
+ServerHost = localhost
+ServerPort = 9000
+Community  = joytest
+
+MOOSTimeWarp = 1
+
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+  Run = MOOSDB             @ NewConsole = false
+  Run = iNetNMEAServer     @ NewConsole = false
+  //Run = iNetNMEAClient     @ NewConsole = false
+  Run = pOysterROS         @ NewConsole = false
+}
+
+
+ProcessConfig = iNetNMEAClient
+{
+   AppTick   = 4
+   CommsTick = 4
+   server = localhost
+   port = 2000
+   nmea_send = NMEA_TO_SEND
+   nmea_recv = NMEA_RECEIVED
+}
+
+
+ProcessConfig = iNetNMEAServer
+{
+   AppTick   = 4
+   CommsTick = 4
+   port = 2000
+   nmea_send = NMEA_TO_SEND
+   nmea_recv = NMEA_RECEIVED
+}
+
+
+ProcessConfig = pOysterROS
+{
+   AppTick   = 4
+   CommsTick = 4
+   input = NMEA_RECEIVED
+   flip_output = FLIP_COMMAND
+   pos_output = RELATIVE_POS
+}

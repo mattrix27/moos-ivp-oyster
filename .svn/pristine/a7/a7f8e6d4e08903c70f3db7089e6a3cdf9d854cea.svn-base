@@ -1,0 +1,31 @@
+% NS_B
+<s>         sil
+
+% NS_E
+</s>        sil
+
+% NAME
+EVAN        eh v ah n
+FELIX       f iy l ih k s
+GUS         g ah s
+HAL         hh ae l
+IDA         ay d ah
+JING        jh ih ng
+
+%COMMAND_G
+RETURN      r ih t er n
+DEPLOY      d ih p l oy
+FOLLOW      f aa l ow
+STATION     s t ey sh ah n
+ATTACK      ah t ae k
+DEFEND      d ih f eh n d
+COVER       k ah v er
+STATUS      s t ae t ah s
+
+%ACK
+YES         y eh s
+NO          n ow
+
+%INTERACT
+TAG         t ae g
+GRAB        g r ae b

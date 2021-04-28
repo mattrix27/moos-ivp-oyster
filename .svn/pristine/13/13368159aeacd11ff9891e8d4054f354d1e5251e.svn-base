@@ -1,0 +1,11 @@
+//------------------------------------------------
+// iZephyrHRM config block
+
+ProcessConfig = iZephyrHRM
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   MAC=A0:B1:C2:D3:E4:F5 // The mac address of the Zephyr sensor
+}
+

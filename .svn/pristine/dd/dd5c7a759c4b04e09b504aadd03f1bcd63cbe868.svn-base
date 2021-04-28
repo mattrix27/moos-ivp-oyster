@@ -1,0 +1,82 @@
+To get the data for Project Aquaticus - the easiest and direct way is by text from the command line:
+
+$ aloggrep shoreside.alog AQUATICUS_GAME_ALL SAY_MOOS_ALL
+
+
+
+For an example below:
+
+
+
+$ aloggrep C001_LOG_SHORESIDE_1_3_2019_____08_21_08.alog SAY_MOOS_ALL AQUATICUS_GAME_ALL
+
+aloggrep - Processing on file: C001_LOG_SHORESIDE_1_3_2019_____08_21_08.alog
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% LOG FILE:       ./C001_LOG_SHORESIDE_1_3_2019_____08_21_08/C001_LOG_SHORESIDE_1_3_2019_____08_21_08.alog
+
+%% FILE OPENED ON  Wed Dec 31 19:00:00 1969
+
+%% LOGSTART               1551446467.88
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+45.477          AQUATICUS_GAME_ALL   pMarineViewer   play 
+
+80.937          SAY_MOOS_ALL         uFldTagManager  file=tag_post_blue_one.wav 
+
+84.498          SAY_MOOS_ALL         uFldFlagManager file=sounds/grab_post_red_two.wav 
+
+125.789         SAY_MOOS_ALL         uFldTagManager  file=sounds/untag_post_blue_one.wav 
+
+132.566         SAY_MOOS_ALL         uFldFlagManager file=sounds/lose_post_blue.wav 
+
+132.566         SAY_MOOS_ALL         uFldFlagManager file=sounds/goal_post_red.wav 
+
+141.077         SAY_MOOS_ALL         uFldFlagManager file=sounds/grab_post_blue_two.wav 
+
+146.580         SAY_MOOS_ALL         uFldTagManager  file=tag_post_blue_two.wav 
+
+146.585         SAY_MOOS_ALL         uFldFlagManager file=sounds/lose_post_red.wav 
+
+150.089         SAY_MOOS_ALL         uFldTagManager  file=tag_post_blue_one.wav 
+
+188.187         SAY_MOOS_ALL         uFldTagManager  file=sounds/untag_post_blue_two.wav 
+
+229.782         SAY_MOOS_ALL         uFldTagManager  file=sounds/untag_post_blue_one.wav 
+
+603.236         AQUATICUS_GAME_ALL   pMarineViewer   stop 
+
+  Total lines retained: 39 (0.05%)
+
+  Total lines excluded: 76996 (99.95%)
+
+  Total chars retained: 3120 (0.02%)
+
+  Total chars excluded: 18504004 (99.98%)
+
+    Variables retained: (2) AQUATICUS_GAME_ALL, SAY_MOOS_ALL
+
+
+
+
+The leftmost column is seconds from start time.  The second column is the variable name.  The third column is the application name.  The fourth column is the recorded variable value.  We are looking at the sound files being played per event (easiest way to see what is happening). The sound files will have a variable value of file=sounds/grab_post_blue_one.wav for example.
+
+
+
+game start/stop = AQUATICUS_GAME_ALL = start/stop
+
+flag grabbed = grab_post_(blue/red one/two)
+
+flags returned (due to being tagged) = lose_post_(red/blue)
+
+flags captured (score a point) = goal_post_(red or blue)
+
+number of times tagged = tag_post_(blue/red, 1/2)
+
+
+
+results of match (wins v losses):  calculate the number of flag captures per team (show up as goal_post...).  The team with the most flags captured wins.  If both teams have an equal number of flag captures, then it is the team with the most flag grabs (shows up as grab_post...) that wins.
+
+ 

@@ -1,0 +1,14 @@
+Setup VoIP Dependencies:
+
+MacPorts: 
+	$ sudo port install portaudio libsndfile boost boost-build protobuf3-cpp log4cpp
+
+Debian Variants: 
+	$ sudo apt install libsndfile-dev libboost-all-dev libportaudio2 libopus-dev libssl-dev libprotobuf-dev protobuf-compiler liblog4cpp5-dev
+
+Setup Murmur VoIP Server:
+
+* Go to https://mumble.info and find the 'Download Mumble' title
+* Download the 1.3+ release of the 'Static Server' for your OS
+* Add the file 'murmurd' from the zip to your $PATH (ex. drop it in your moos-ivp-aquaticus/bin directory)
+* Run your mission with the appropriate flag and enjoy!

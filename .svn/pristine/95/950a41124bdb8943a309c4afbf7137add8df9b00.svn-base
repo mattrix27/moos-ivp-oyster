@@ -1,0 +1,11 @@
+//------------------------------------------------
+// pShorePing config block
+
+ProcessConfig = pShorePing
+{
+   AppTick   = 4
+   CommsTick = 4
+   Robot     = felix
+   
+}
+

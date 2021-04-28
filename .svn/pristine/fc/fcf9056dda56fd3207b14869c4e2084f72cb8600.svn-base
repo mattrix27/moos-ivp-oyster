@@ -1,0 +1,26 @@
+//------------------------------------------------
+// uDialogManager config block
+
+ProcessConfig = uDialogManager_3_0
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   //robot Betty's nickname is Arnold
+   //Nickname = betty:arnold
+
+   //list of vars and values to publish given speech sentence
+	 //var-value pairs are '+' separated
+//	 sentence = Arnold_Deploy : DEPLOY = true + MOOS_MANUAL_OVERRIDE = false + RETURN = false
+	 sentence = Arnold_Deploy : SAY_MOOS = DEPLOY
+    //quotes around a string for a value can be used
+   sentence = Arnold_Follow : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=true"
+   sentence = Arnold_Station : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=TRAIL,string_val=false"
+   sentence = Arnold_Return : NODE_MESSAGE_LOCAL = "src_node=mokai,dest_node=betty,var_name=RETURN,string_val=true"
+
+	//add NOCONFIRM after speech sentence so that publishes without confirmation
+	 sentence = Grab {NOCONFIRM} : SAY_MOOS=GRAB
+
+	//to switch from default confirmation of confirm=Yes or confirm=No use CONFIRM=some_confirmation and DECLINE=some_rejection 
+	 sentence = Tag { CONFIRM=yes | DECLINE=non} : SAY_MOOS="tagging yo"
+}

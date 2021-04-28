@@ -1,0 +1,333 @@
+//*******************************************************
+// ShoreSide Configuration File
+
+ServerHost = localhost
+ServerPort = $(SPORT)
+Community  = $(SNAME)
+
+#include plug_origin_warp.moos
+
+//--------------------------------------------------------
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pLogger         @ NewConsole = false
+
+  Run = uFldFlagManager @ NewConsole = false
+  Run = uFldTagManager  @ NewConsole = false
+
+  Run = uProcessWatch   @ NewConsole = false
+
+  Run = pHostInfo       @ NewConsole = false
+  Run = pShare          @ NewConsole = false
+  Run = uFldShoreBroker @ NewConsole = false
+  Run = uFldNodeComms   @ NewConsole = false
+
+  Run = pMarineViewer   @ NewConsole = false
+//  Run = iSay            @ NewConsole = false
+}
+
+//---------------------------------------------------------
+ProcessConfig = pShare
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  input = route =  localhost:$(SHARE_LISTEN)
+}
+
+//--------------------------------------------------
+// uFldFlagMgr Configuration Block
+
+ProcessConfig = uFldFlagManager
+{
+  AppTick       = 4
+  CommsTick     = 4
+  
+  default_flag_range = 15
+
+  flag_follows_vehicle = true
+
+  near_flag_range_buffer = 5
+
+  flag = $(RED_FLAG), color=red, label=red, range=15
+  flag = $(BLUE_FLAG), color=blue, label=blue, range=15
+
+  grab_post = var=SAY_MOOS, sval={say={$VNAME has the $FLAG flag}}
+  //lose_post = var=SAY_MOOS, sval={say={the $FLAG flag has been reset}}
+
+  //near_post = var=SAY_MOOS, sval={say={$VNAME is near the $FLAG flag}}
+  near_post = var=SAY_MOOS, sval={file=sounds/shipbell.wav}
+  away_post = var=SAY_MOOS, sval={file=sounds/buzzer.wav}
+
+  //deny_post = var=SAY_MOOS, sval={file=sounds/sf-no-soup.wav}
+  deny_post = var=SAY_MOOS, sval={say={Grab denied $REASON}}
+
+  goal_post = var=SAY_MOOS, sval={say={$VTEAM has scored and returned the $FLAG flag}}
+  home_post = var=SAY_MOOS, sval={say={$VNAME has returned home}}
+
+  near_post = var=LED_IN_FLAG_ZONE_$VNAME, sval={true}
+  away_post = var=LED_IN_FLAG_ZONE_$VNAME, sval={false}
+
+  near_flag_range_buffer = 0    // Default is 2
+}
+
+//--------------------------------------------------
+// uFldTagManager Configuration Block
+
+ProcessConfig = uFldTagManager
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  tag_range = 20     // default (meters)
+
+  post_color = white  // default
+
+  tag_circle = true
+  tag_circle_range = 5
+  tag_circle_color = "green"
+  tag_min_interval = 10
+
+  tag_duration = 10000
+
+	robot_tag_post   = TESTING=true
+	
+  //robot_tag_post   = MOOS_MANUAL_OVERRIDE_$UP_TARGET=true
+  human_tag_post   = SAY_MOOS=say={$TARGET_has_been_tagged},rate=200
+  human_tag_post   = SAY_MOOS_$UP_TARGET=say={you_have_been_tagged},rate=200
+  robot_tag_post   = SAY_MOOS=say={$TARGET_has_been_tagged},rate=200
+  robot_tag_post   = SAY_MOOS_$UP_TARGET=say={you_have_been_tagged},rate=200
+
+  // Return Flag
+  human_tag_post   = FLAG_RESET=vname=$TARGET
+  robot_tag_post   = FLAG_RESET=vname=$TARGET
+  human_tag_post   = TAGGED_$UP_TARGET=true
+  robot_tag_post   = TAGGED_$UP_TARGET=true
+
+	notag_post = SAY_MOOS_$UP_SOURCE=say={No Tag $REASON},rate=200 
+	
+  //robot_untag_post = MOOS_MANUAL_OVERRIDE_$UP_TARGET=false
+  // human_untag_post   = SAY_MOOS=say={$TARGET_has_been_untagged},rate=200
+  // human_untag_post   = SAY_MOOS_$UP_TARGET=say={you_have_been_untagged},rate=200
+
+  //robot_untag_post   = SAY_MOOS=say={$TARGET_has_been_untagged},rate=200
+  //robot_untag_post   = SAY_MOOS_$UP_TARGET=say={you_have_been_untagged},rate=200
+
+	robot_untag_post   = TEST_UNTAG=$TARGET_has_been_untagged,rate=200
+
+
+	human_untag_post = TAGGED_$UP_TARGET=false
+  robot_untag_post = TAGGED_$UP_TARGET=false
+
+  team_one=blue
+  team_two=red
+
+  zone_one = pts={ 0,0 : 0,80 : 80,80 : 80,0 }
+  zone_two = pts={ 80,0 : 80,80 : 160,80 : 160,0 }
+
+  zone_one_color = pink
+  zone_two_color = dodger_blue
+}
+
+//--------------------------------------------------
+// ufldnodecomms Configuration Block
+
+ProcessConfig = uFldNodeComms
+{
+  AppTick       = 2
+  CommsTick     = 2
+
+  comms_range      = 5000
+  critical_range   = 25
+
+  min_msg_interval = 0
+  max_msg_length   = 10000
+  groups           = false
+
+  view_node_rpt_pulses = false
+}
+
+//--------------------------------------------------
+// uFldShoreBroker Configuration Block
+
+ProcessConfig = uFldShoreBroker
+{
+  AppTick       = 1
+  CommsTick     = 1
+
+  // Note: [QBRIDGE = FOO]  is shorthand for
+  //       [BRIDGE = src=FOO_$V,  alias=FOO] and
+  //       [BRIDGE = src=FOO_ALL, alias=FOO]
+
+  qbridge  = DEPLOY, RETURN, STATION_KEEP, NODE_REPORT, NODE_MESSAGE
+  qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ, AVOID, CHASE
+  qbridge  = TAGGED, ACTION, LOITER_UPDATES, GO_GRAB, LED_TAGGED
+  qbridge  = SAY_MOOS, HAS_FLAG, ONFIELD, CANTAG, LED_IN_FLAG_ZONE
+
+  bridge   = src=IN_OWN_TERRITORY
+  bridge   = src=IN_ENEMY_TERRITORY
+
+  bridge   = src=UP_LOITER_$N, alias=UP_LOITER
+  bridge   = src=HELM_MAP_CLEAR, alias=HELM_MAP_CLEAR
+  bridge   = src=FLAG_SUMMARY
+}
+
+//--------------------------------------------------
+
+ProcessConfig = pHostInfo
+{
+  AppTick     = 1
+  CommsTick   = 1
+
+  // DEFAULT_HOSTIP = localhost
+}
+
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+
+  File          = LOG_SHORESIDE
+  PATH          = ./
+  SyncLog       = true @ 0.2
+  AsyncLog      = true
+  FileTimeStamp = true
+
+  LogAuxSrc     = true
+
+  // Log it all!!!!!
+  WildCardLogging = true
+  WildCardOmitPattern = *_STATUS
+  //WildCardOmitPattern = DB_VARSUMMARY
+  //WildCardOmitPattern = DB_RWSUMMARY
+}
+
+//--------------------------------------------------------
+
+ProcessConfig = pMarineViewer
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  tiff_file            = ../popolopen19_esrisat.tif
+
+  set_pan_x            = -690
+  set_pan_y            = -225
+  zoom                 = 2
+  vehicles_shape_scale = 1.0
+  vehicles_name_mode   = names
+
+  circle_viewable_all = true
+	polygon_viewable_labels = false
+	point_viewable_labels = false
+	
+  appcast_viewable = true
+  appcast_color_scheme = indigo
+  nodes_font_size      = xlarge
+  procs_font_size      = xlarge
+  appcast_font_size    = xlarge
+	
+  scope = LED_IN_FLAG_ZONE_EVAN
+  scope = LED_IN_FLAG_ZONE_GUS
+
+  scope = CANTAG_EVAN
+  scope = ONFIELD_EVAN 
+
+  scope = FLAG_GRAB_REPORT
+  scope = NODE_BROKER_PING
+  scope = DEPLOY_ALL
+
+  action = STATION_KEEP_ALL = false
+  action = STATION_KEEP_ALL = true
+  action = CHASE_ALL = false
+
+  button_one   = DEPLOY_ALL  # DEPLOY_ALL=true # color=light_green
+  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
+  button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
+
+  button_two   = RETURN_ALL  # RETURN_ALL=true # color=light_green
+  button_two   = STATION_KEEP_ALL=false
+
+  button_three = DEFEND_ALL # STATION_KEEP_ALL=false # color=light_green
+  button_three = ACTION_ALL=defend  # RETURN_ALL=false
+
+  button_four  = STATION_ALL # STATION_KEEP_ALL=true # color = light_green
+  button_four  = RETURN_ALL=false
+
+	// Red Team
+	button_5 = GUS_Station # STATION_KEEP_GUS=true # color=pink
+	button_6 = GUS_Defend  # ACTION_GUS=defend # color=pink
+	button_6 = STATION_KEEP_GUS=false # RETURN_GUS=false
+
+	button_7 = GUS_Attack # GO_GRAB_GUS=true # color=pink
+	button_7 = ACTION_GUS=attack # STATION_KEEP_GUS = false
+	button_8 = GUS_Chase  # CHASE_GUS=true # color=pink
+	button_8 = STATION_KEEP_GUS=false # ACTION_GUS=defend
+
+	// Blue Team
+	
+	button_9 = EVAN_Station # STATION_KEEP_EVAN=true # color=light_blue
+	button_10 = EVAN_Defend  # ACTION_EVAN=defend # color=light_blue
+	button_10 = STATION_KEEP_EVAN=false # RETURN_EVAN=false
+
+	button_11 = EVAN_Attack # GO_GRAB_EVAN=true # color=light_blue
+	button_11 = ACTION_EVAN=attack # STATION_KEEP_EVAN = false
+	button_12 = EVAN_Chase  # CHASE_EVAN=true # color=light_blue
+	button_12 = STATION_KEEP_EVAN=false # ACTION_EVAN=defend
+
+	// Northwest Corner
+	op_vertex = x=0, y=80,   lwidth=1,lcolor=yellow,looped=true,group=moa
+	// Southwest Corner
+  op_vertex = x=0, y=0,    lwidth=1,lcolor=yellow,looped=true,group=moa
+	// Southeast Corner
+  op_vertex = x=160, y=0,  lwidth=1,lcolor=yellow,looped=true,group=moa
+	// Northeast Corner
+  op_vertex = x=160, y=80, lwidth=1,lcolor=yellow,looped=true,group=moa
+
+#include plug_commandfolio.txt	
+}
+
+//--------------------------------------------------------
+// uProcessWatch Configuration Block
+
+ProcessConfig = uCommand
+{
+#include plug_commandfolio.txt	
+}
+
+//--------------------------------------------------------
+// uProcessWatch Configuration Block
+
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  allow_retractions = true
+
+  watch_all = true      // default is true
+
+  nowatch = uXMS*
+  nowatch = uPokeDB*
+
+  summary_wait = 12
+}
+
+//------------------------------------------
+ProcessConfig = iSay
+{
+  AppTick   = 5
+  CommsTick = 5
+
+  min_utter_interval = 1
+  interval_policy    = from_start
+
+  os_mode=both
+  audio_dir=sounds
+}

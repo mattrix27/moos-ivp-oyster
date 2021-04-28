@@ -1,0 +1,12 @@
+//------------------------------------------------
+// pOysterESC config block
+
+ProcessConfig = pOysterESC
+{
+   AppTick   = 100
+   CommsTick = 1
+   SerialPort = /dev/ttyUSB0
+   SerialBaud = 19200
+   MOOS_PUB_VAR = DESIRED_THRUST
+   
+}

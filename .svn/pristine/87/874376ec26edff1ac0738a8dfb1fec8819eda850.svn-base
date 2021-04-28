@@ -1,0 +1,21 @@
+% NS_B
+<s>        sil
+
+% NS_E
+</s>        sil
+
+% NAME
+ARNOLD     aa r n ah l d
+BETTY      b eh t iy
+CHARLIE	   ch aa r l iy
+TEAM	   t iy m
+
+%COMMAND
+RETURN		r ih t er n
+DEPLOY		d ih p l oy
+FOLLOW		f aa l ow
+STATION         s t ey sh ah n
+
+%ACK
+YES             y eh s
+NO              n ow

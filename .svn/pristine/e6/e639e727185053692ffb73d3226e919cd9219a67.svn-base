@@ -1,0 +1,13 @@
+ProcessConfig = uTimerScriptTag                                         
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+
+  script_atomic = false
+  paused = false
+  reset_max = unlimited
+  reset_time = all-posted
+  condition = BUTTON_TAG = TRUE
+  event = var=TAG_REQUEST, val="vname=$(VNAME)"
+  event = var=FOO, val=BAR, time=2
+}

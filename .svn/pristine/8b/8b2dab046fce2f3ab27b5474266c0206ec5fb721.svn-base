@@ -1,0 +1,64 @@
+//*******************************************************
+// ShoreSide Configuration File
+
+ServerHost = localhost
+ServerPort = $(SPORT)
+Community  = $(SNAME)
+
+//--------------------------------------------------------
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 100
+
+  Run = MOOSDB          @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = pLogger         @ NewConsole = false
+  Run = pComms_client    @ NewConsole = false
+}
+///------------------------------------------------
+// pComms_client config block
+
+ProcessConfig = pComms_client
+{
+   AppTick   = .2
+   CommsTick = .2
+
+//ClientSocket as integer
+   ClientSocket =  11112
+   //ClientIP in string format
+   ClientIP = 192.168.1.247
+
+//ServerSocket as integer
+   ServerSocket = 11111
+   //ServerIP in string format
+   ServerIP = 192.168.1.155
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block from plugin
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 1
+  CommsTick 	= 1
+
+  DEFAULT_HOSTIP = 192.168.1.155
+}
+    
+//--------------------------------------------------
+// pLogger Configuration Block
+
+ProcessConfig = pLogger
+{
+  AppTick       = 10
+  CommsTick     = 10
+  
+  File          = SHORESIDE
+  PATH          = ./
+  SyncLog       = true @ 0.2
+  AsyncLog      = true
+  FileTimeStamp = true
+
+  // Log it all!!!!!
+  WildCardLogging = true 
+}

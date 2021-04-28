@@ -1,0 +1,22 @@
+ProcessConfig = pRecordSpeechRec                                         
+{                                                               
+  AppTick   = 4                                                 
+  CommsTick = 4                                                 
+                                                                
+//Set the MOOS Variable and Value for which to record           
+//If not specified, defaults to MOOS_VAR_WATCH = SPEECH_BUTTON  
+// and MOOS_VALUE_WATCH = TRUE                                  
+  MOOS_VAR_WATCH = SPEECH_ACTIVE                                  
+  MOOS_VALUE_WATCH = TRUE                                      
+                                                                
+//Set the prefix of .wave files to be saved                     
+//If not specified, defaults to "file_"                       
+  SAVE_FILE_PREFIX = speech_rec_                                
+                                                                
+//Set directory save prefix                                     
+//pRecord saves the directory relative to execution of the      
+//program with date and time appended.                          
+//If not specified, defaults to "pRecord_saves"               
+  SAVE_DIR_PREFIX = SPEECH_REC_SAVE                                 
+                                                                
+}   

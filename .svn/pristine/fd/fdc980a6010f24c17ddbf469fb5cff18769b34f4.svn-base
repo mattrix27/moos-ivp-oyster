@@ -1,0 +1,11 @@
+//------------------------------------------
+// uSpeechRec
+
+
+ProcessConfig = uSpeechRec
+{
+  AppTick   = 4
+  CommsTick = 4
+  
+  JuliusConf = Alpha.jconf
+}

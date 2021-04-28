@@ -1,0 +1,20 @@
+// uTimerScript Configuration Block
+
+ProcessConfig = UTS_Jackal_timer
+{
+  AppTick   = 4
+  CommsTick = 4
+  
+  paused     = false
+  reset_max  = unlimited
+  reset_time = end
+    forward_var = UTS_JACKAL_FORWARD
+
+
+  randvar = varname=X1, min=0,  max=150, key=at_reset
+  randvar = varname=Y1, min=-200, max=-75, key=at_reset
+//  randvar = varname=X2, min=160,  max=161, key=at_reset
+//  randvar = varname=Y2, min=-160,  max=-60, key=at_reset
+
+  event = var=UP_TRANS, val="points = $[X1],$[Y1]", time=1000
+}

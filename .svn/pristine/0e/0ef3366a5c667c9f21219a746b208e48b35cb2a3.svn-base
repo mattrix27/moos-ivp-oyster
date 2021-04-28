@@ -1,0 +1,12 @@
+//------------------------------------------------
+// pTimeWatch config block
+
+ProcessConfig = pTimeWatch
+{
+   AppTick   = 4
+   CommsTick = 4
+
+   watch_var = NODE_REPORT
+   threshhold = 30
+}
+

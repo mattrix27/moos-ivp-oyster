@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pOysterROS config block
+
+ProcessConfig = pOysterROS
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

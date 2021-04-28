@@ -1,0 +1,72 @@
+##############################################################################
+# FILE:        moos-ivp-aquaticus/README_WEBCAM_DEPENDENCIES
+# DATE:        2018/08/01
+# DESCRIPTION: Contains important information regarding the moos-ivp iWebcam &
+#              pCamViewer apps.
+##############################################################################
+
+#=============================================================================
+# Introduction
+#=============================================================================
+
+
+#=============================================================================
+# Directory Structure
+#=============================================================================
+
+
+#=============================================================================
+# Build Instructions
+#=============================================================================
+#--------------------
+# Linux and Mac Users
+#--------------------
+
+MAC Dependencies:
+YOU MUST FIRST ADD THIS TO YOUR .profile or corresponding library path:
+export LIBRARY_PATH=/opt/local/lib to either your .profile, .bash_profile, or .bashrc
+
+This is necessary because unfortunately MacPorts is not properly adding the library path.
+
+And then add the package for OpenCV:
+sudo port install opencv
+
+
+Ubuntu Dependencies:
+sudo apt-get install libopencv-dev
+
+On an NVidia Jetson or other computer with a Tegra processor:
+sudo apt-get install libopencv3tegra
+
+To build on Linux and Apple platforms, execute the build script within this
+directory:
+
+   $ ./build.sh
+
+To build without using the supplied script, execute the following commands
+within this directory:
+
+   $ mkdir -p build
+   $ cd build
+   $ cmake ../
+   $ make
+   $ cd ..
+
+
+#--------------
+# Windows Users
+#--------------
+
+Please reconsider your use of Windows as we do not have an active way to
+support that OS.
+
+#=============================================================================
+# Environment variables
+#=============================================================================
+The moos-ivp binaries files should be added to your path to allow them to be
+launched from pAntler.
+
+##############################################################################
+#                               END of README
+##############################################################################
+

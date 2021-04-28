@@ -1,0 +1,19 @@
+//------------------------------------------------
+// pPingDisplay config block
+
+ProcessConfig = pPingDisplay
+{
+   AppTick   = 4
+   CommsTick = 4
+  grid_config = pts={-50,-40: -10,0: 180,0: 180,-150: -50,-150}
+  grid_config = cell_size=5
+  grid_config = cell_vars=x:0:y:0:z:0
+  grid_config = cell_min=x:0
+  grid_config = cell_max=x:10
+
+  weight = 40
+  height = 30
+  level = 3
+   
+}
+
