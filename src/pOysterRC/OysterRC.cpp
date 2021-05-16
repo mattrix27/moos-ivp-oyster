@@ -9,9 +9,15 @@ OysterRC::OysterRC()
     m_debugMode = false;
     m_safety = "UP";
     m_flip = "UP";
+    m_reset = "UP";
+    m_start = "UP";
+  
     m_RCOutVal = "";
     m_RCOutName = "RC_COMMAND";
     m_RCOutFlip = "RC_FLIP";
+    m_RCOutReset = "RC_RESET";
+    m_RCOutStart = "RC_START";
+    m_NMEAOut    = "NMEA_TO_SEND";
     m_dbl_thres = 3*pow(10,-5); 
 }
 
@@ -64,13 +70,26 @@ void OysterRC::PublishOutput()
         if (mb.GetOut() == "RC_FLIP") {
             m_flip = mb.GetLastValue();
         }
+        if (mb.GetOut() == "RESET") {
+            m_reset = mb.GetLastValue();
+        }
+        if (mb.GetOut() == "START") {
+            m_start = mb.GetLastValue();
+        }
     }
 
     if (m_safety == "DOWN") {
         // cout << "DOWN DOWN DOWN DOWN DOWN" << endl;
         if (m_flip == "DOWN") {
-            m_Comms.Notify("RC_FLIP", "FLIP");
+            m_Comms.Notify(m_NMEAOut, "FLIP");
         }
+        else if (m_reset == "DOWN") {
+            m_Comms.Notify(m_NMEAOut, "RESET");
+        }
+        else if (m_start == "DOWN") {
+            m_Comms.Notify(m_NMEAOut, "START");
+        }
+        
 
         // Cycle through RANGE definitions
         map<string, mapRange>::iterator it = m_ranges.begin();

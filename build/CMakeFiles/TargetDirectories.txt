@@ -20,6 +20,9 @@
 /home/oyster/moos-ivp-oyster/build/src/pOysterROS/CMakeFiles/rebuild_cache.dir
 /home/oyster/moos-ivp-oyster/build/src/pOysterROS/CMakeFiles/pOysterROS.dir
 /home/oyster/moos-ivp-oyster/build/src/pOysterROS/CMakeFiles/edit_cache.dir
+/home/oyster/moos-ivp-oyster/build/src/pOysterPID/CMakeFiles/rebuild_cache.dir
+/home/oyster/moos-ivp-oyster/build/src/pOysterPID/CMakeFiles/pOysterPID.dir
+/home/oyster/moos-ivp-oyster/build/src/pOysterPID/CMakeFiles/edit_cache.dir
 /home/oyster/moos-ivp-oyster/build/src/iNetNMEAClient/CMakeFiles/rebuild_cache.dir
 /home/oyster/moos-ivp-oyster/build/src/iNetNMEAClient/CMakeFiles/iNetNMEAClient.dir
 /home/oyster/moos-ivp-oyster/build/src/iNetNMEAClient/CMakeFiles/edit_cache.dir

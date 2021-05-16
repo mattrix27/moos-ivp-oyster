@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pOysterPID config block
+
+ProcessConfig = pOysterPID
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

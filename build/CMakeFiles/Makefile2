@@ -69,6 +69,7 @@ src/all: src/pOysterESC/all
 src/all: src/pOysterMUX/all
 src/all: src/pOysterRC/all
 src/all: src/pOysterROS/all
+src/all: src/pOysterPID/all
 src/all: src/iNetNMEAClient/all
 src/all: src/iNetNMEAServer/all
 
@@ -81,6 +82,7 @@ src/clean: src/pOysterESC/clean
 src/clean: src/pOysterMUX/clean
 src/clean: src/pOysterRC/clean
 src/clean: src/pOysterROS/clean
+src/clean: src/pOysterPID/clean
 src/clean: src/iNetNMEAClient/clean
 src/clean: src/iNetNMEAServer/clean
 
@@ -93,6 +95,7 @@ src/preinstall: src/pOysterESC/preinstall
 src/preinstall: src/pOysterMUX/preinstall
 src/preinstall: src/pOysterRC/preinstall
 src/preinstall: src/pOysterROS/preinstall
+src/preinstall: src/pOysterPID/preinstall
 src/preinstall: src/iNetNMEAClient/preinstall
 src/preinstall: src/iNetNMEAServer/preinstall
 
@@ -343,7 +346,7 @@ src/pOysterRC/preinstall:
 src/pOysterRC/CMakeFiles/pOysterRC.dir/all:
 	$(MAKE) -f src/pOysterRC/CMakeFiles/pOysterRC.dir/build.make src/pOysterRC/CMakeFiles/pOysterRC.dir/depend
 	$(MAKE) -f src/pOysterRC/CMakeFiles/pOysterRC.dir/build.make src/pOysterRC/CMakeFiles/pOysterRC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oyster/moos-ivp-oyster/build/CMakeFiles --progress-num=29,30,31,32,33,34 "Built target pOysterRC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oyster/moos-ivp-oyster/build/CMakeFiles --progress-num=33,34,35,36,37,38 "Built target pOysterRC"
 .PHONY : src/pOysterRC/CMakeFiles/pOysterRC.dir/all
 
 # Include target in all.
@@ -398,7 +401,7 @@ src/pOysterROS/preinstall:
 src/pOysterROS/CMakeFiles/pOysterROS.dir/all:
 	$(MAKE) -f src/pOysterROS/CMakeFiles/pOysterROS.dir/build.make src/pOysterROS/CMakeFiles/pOysterROS.dir/depend
 	$(MAKE) -f src/pOysterROS/CMakeFiles/pOysterROS.dir/build.make src/pOysterROS/CMakeFiles/pOysterROS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oyster/moos-ivp-oyster/build/CMakeFiles --progress-num=35,36,37,38 "Built target pOysterROS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oyster/moos-ivp-oyster/build/CMakeFiles --progress-num=39,40,41,42 "Built target pOysterROS"
 .PHONY : src/pOysterROS/CMakeFiles/pOysterROS.dir/all
 
 # Include target in all.
@@ -425,6 +428,61 @@ src/pOysterROS/CMakeFiles/pOysterROS.dir/clean:
 
 # clean rule for target.
 clean: src/pOysterROS/CMakeFiles/pOysterROS.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/pOysterPID
+
+# Convenience name for "all" pass in the directory.
+src/pOysterPID/all: src/pOysterPID/CMakeFiles/pOysterPID.dir/all
+
+.PHONY : src/pOysterPID/all
+
+# Convenience name for "clean" pass in the directory.
+src/pOysterPID/clean: src/pOysterPID/CMakeFiles/pOysterPID.dir/clean
+
+.PHONY : src/pOysterPID/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/pOysterPID/preinstall:
+
+.PHONY : src/pOysterPID/preinstall
+
+#=============================================================================
+# Target rules for target src/pOysterPID/CMakeFiles/pOysterPID.dir
+
+# All Build rule for target.
+src/pOysterPID/CMakeFiles/pOysterPID.dir/all:
+	$(MAKE) -f src/pOysterPID/CMakeFiles/pOysterPID.dir/build.make src/pOysterPID/CMakeFiles/pOysterPID.dir/depend
+	$(MAKE) -f src/pOysterPID/CMakeFiles/pOysterPID.dir/build.make src/pOysterPID/CMakeFiles/pOysterPID.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oyster/moos-ivp-oyster/build/CMakeFiles --progress-num=29,30,31,32 "Built target pOysterPID"
+.PHONY : src/pOysterPID/CMakeFiles/pOysterPID.dir/all
+
+# Include target in all.
+all: src/pOysterPID/CMakeFiles/pOysterPID.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/pOysterPID/CMakeFiles/pOysterPID.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oyster/moos-ivp-oyster/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 src/pOysterPID/CMakeFiles/pOysterPID.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oyster/moos-ivp-oyster/build/CMakeFiles 0
+.PHONY : src/pOysterPID/CMakeFiles/pOysterPID.dir/rule
+
+# Convenience name for target.
+pOysterPID: src/pOysterPID/CMakeFiles/pOysterPID.dir/rule
+
+.PHONY : pOysterPID
+
+# clean rule for target.
+src/pOysterPID/CMakeFiles/pOysterPID.dir/clean:
+	$(MAKE) -f src/pOysterPID/CMakeFiles/pOysterPID.dir/build.make src/pOysterPID/CMakeFiles/pOysterPID.dir/clean
+.PHONY : src/pOysterPID/CMakeFiles/pOysterPID.dir/clean
+
+# clean rule for target.
+clean: src/pOysterPID/CMakeFiles/pOysterPID.dir/clean
 
 .PHONY : clean
 

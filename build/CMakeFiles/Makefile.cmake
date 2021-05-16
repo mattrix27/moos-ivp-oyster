@@ -19,6 +19,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/pMapValues/CMakeLists.txt"
   "../src/pOysterESC/CMakeLists.txt"
   "../src/pOysterMUX/CMakeLists.txt"
+  "../src/pOysterPID/CMakeLists.txt"
   "../src/pOysterRC/CMakeLists.txt"
   "../src/pOysterROS/CMakeLists.txt"
   "/home/oyster/moos-ivp/build/MOOS/MOOSCore/MOOSConfig.cmake"
@@ -67,6 +68,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/pOysterMUX/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pOysterRC/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pOysterROS/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/pOysterPID/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/iNetNMEAClient/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/iNetNMEAServer/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -79,6 +81,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/pOysterMUX/CMakeFiles/pOysterMUX.dir/DependInfo.cmake"
   "src/pOysterRC/CMakeFiles/pOysterRC.dir/DependInfo.cmake"
   "src/pOysterROS/CMakeFiles/pOysterROS.dir/DependInfo.cmake"
+  "src/pOysterPID/CMakeFiles/pOysterPID.dir/DependInfo.cmake"
   "src/iNetNMEAClient/CMakeFiles/iNetNMEAClient.dir/DependInfo.cmake"
   "src/iNetNMEAServer/CMakeFiles/iNetNMEAServer.dir/DependInfo.cmake"
   )

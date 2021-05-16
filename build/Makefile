@@ -189,6 +189,19 @@ pOysterROS/fast:
 .PHONY : pOysterROS/fast
 
 #=============================================================================
+# Target rules for targets named pOysterPID
+
+# Build rule for target.
+pOysterPID: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pOysterPID
+.PHONY : pOysterPID
+
+# fast build rule for target.
+pOysterPID/fast:
+	$(MAKE) -f src/pOysterPID/CMakeFiles/pOysterPID.dir/build.make src/pOysterPID/CMakeFiles/pOysterPID.dir/build
+.PHONY : pOysterPID/fast
+
+#=============================================================================
 # Target rules for targets named iNetNMEAClient
 
 # Build rule for target.
@@ -228,6 +241,7 @@ help:
 	@echo "... pOysterMUX"
 	@echo "... pOysterRC"
 	@echo "... pOysterROS"
+	@echo "... pOysterPID"
 	@echo "... iNetNMEAClient"
 	@echo "... iNetNMEAServer"
 .PHONY : help

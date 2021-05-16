@@ -42,6 +42,9 @@ protected:
     std::string m_RCOutName;
     std::string m_RCOutVal;
     std::string m_RCOutFlip;
+    std::string m_RCOutReset;
+    std::string m_RCOutStart;
+    std::string m_NMEAOut;
     
     double m_x;
     double m_y;
@@ -52,6 +55,8 @@ protected:
 
     std::string m_safety;
     std::string m_flip;
+    std::string m_reset;
+    std::string m_start;
 };
 
 #endif

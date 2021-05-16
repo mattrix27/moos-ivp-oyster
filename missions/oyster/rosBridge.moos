@@ -40,6 +40,5 @@ ProcessConfig = pOysterROS
    AppTick   = 4
    CommsTick = 4
    input = NMEA_RECEIVED
-   flip_output = FLIP_COMMAND
    pos_output = RELATIVE_POS
 }

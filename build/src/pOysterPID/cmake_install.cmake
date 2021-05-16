@@ -1,4 +1,4 @@
-# Install script for directory: /home/oyster/moos-ivp-oyster/src
+# Install script for directory: /home/oyster/moos-ivp-oyster/src/pOysterPID
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,19 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/oyster/moos-ivp-oyster/build/src/pMapValues/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/iJoystick/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/pOysterESC/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/pOysterMUX/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/pOysterRC/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/pOysterROS/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/pOysterPID/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/iNetNMEAClient/cmake_install.cmake")
-  include("/home/oyster/moos-ivp-oyster/build/src/iNetNMEAServer/cmake_install.cmake")
-
 endif()
 
