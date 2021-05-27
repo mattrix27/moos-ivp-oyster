@@ -1,6 +1,6 @@
 ServerHost = localhost
 ServerPort = 9000
-Community  = joytest
+Community  = oyster
 
 MOOSTimeWarp = 1
 
@@ -64,7 +64,7 @@ ProcessConfig = pOysterESC
 {
   AppTick   = 100
   CommsTick = 0.1
-  SerialPort = /dev/ttyACM0
+  SerialPort = /dev/ttyACM1
   SerialBaud = 19200
   INPUT      = DESIRED_THRUST
 }
